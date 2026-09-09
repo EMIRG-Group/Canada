@@ -67,7 +67,7 @@
   .expwrap{position:relative; padding-bottom:2px}
   .expbar{display:flex; height:52px; width:100%; border-radius:2px; overflow:hidden; border:1px solid var(--rule)}
   .expbar > div{position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; min-width:0}
-  .expbar span{font-size:12.5px; font-weight:650; color:#fff; white-space:nowrap; padding:0 8px}
+  .expbar span{font-size:12.5px; font-weight:650; color:#fff; white-space:nowrap; padding:0 6px}
   .expbar .seg-ot span{color:var(--ink)}
   .exp-tick{position:absolute; top:52px; width:1px; height:13px; background:var(--rust)}
   .exp-callout{margin-top:17px; text-align:right; font-size:12.5px; font-weight:650; color:var(--rust)}
@@ -193,7 +193,7 @@
     .cal .row .c{text-align:left}
     .expbar{height:44px}
     .expbar span{font-size:11.5px; padding:0 6px}
-    .expbar .seg-ot span{display:none}
+    .seg-us span{font-size:11px}
     .exp-tick{top:44px}
     .exp-callout{text-align:left; font-size:12px}
   }
@@ -289,7 +289,7 @@
         <div class="seg-uk" style="width:9.2%"></div>
         <div class="seg-cn" style="width:5%"></div>
         <div class="seg-eu" style="width:5%"></div>
-        <div class="seg-ot" style="width:12.8%"><span>Rest of world 12.8%</span></div>
+        <div class="seg-ot" style="width:12.8%"><span>12.8%</span></div>
       </div>
       <div class="exp-tick" style="left:66.3%"></div>
       <div class="exp-callout">3.4% of all Canadian exports now carry a 50% US tariff</div>

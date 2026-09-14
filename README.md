@@ -1,251 +1,295 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canada Economic Dashboard — September 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
   :root{
-    --paper:#F4F6F8;
+    --paper:#F2F4F6;
     --surface:#FFFFFF;
-    --surface-2:#F7F9FA;
-    --ink:#1B242C;
-    --ink-2:#5B6872;
-    --ink-3:#8B97A1;
-    --rule:#DCE2E7;
-    --rule-soft:#EAEEF1;
-    --spruce:#15704E;
-    --spruce-soft:#E8F2EE;
-    --rust:#B03A2E;
-    --rust-soft:#FAEBE9;
-    --amber:#8F6D1C;
-    --amber-soft:#F8F0DE;
-    --slate:#215C8F;
-    --slate-soft:#E9F0F6;
-    --sans: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Inter",Arial,sans-serif;
+    --surface-2:#F7F9FB;
+    --ink:#101A22;
+    --ink-2:#4E5C67;
+    --ink-3:#85919B;
+    --rule:#E2E7EB;
+    --rule-soft:#ECF0F3;
+    --rule-strong:#CFD8DE;
+    --spruce:#11694A;
+    --spruce-soft:#E6F1EC;
+    --rust:#B0372C;
+    --rust-soft:#FBEAE7;
+    --amber:#926E16;
+    --amber-soft:#F9F1DE;
+    --slate:#1F5A8C;
+    --slate-soft:#E8EFF5;
+    --sans:"Instrument Sans",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --r:9px; --r-sm:6px;
+    --sh-1:0 1px 2px rgba(16,26,34,.045), 0 1px 1px rgba(16,26,34,.03);
+    --sh-2:0 1px 2px rgba(16,26,34,.05), 0 10px 28px -12px rgba(16,26,34,.16);
+    --ease:cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
   body{
-    margin:0; background:var(--paper); color:var(--ink);
+    margin:0; color:var(--ink);
+    background:var(--paper);
+    background-image:radial-gradient(900px 420px at 18% -8%, #FFFFFF 0%, rgba(255,255,255,0) 68%);
+    background-attachment:fixed;
     font-family:var(--sans); font-size:16px; line-height:1.62;
+    font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1,"cv05" 1;
     -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
   }
-  .num,.ui{font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1}
+  .num,.ui{font-variant-numeric:tabular-nums}
+  ::selection{background:var(--slate-soft); color:var(--ink)}
+
+  /* scroll progress */
+  #progress{position:fixed; top:0; left:0; right:0; height:2px; z-index:60; background:transparent; pointer-events:none}
+  #progress span{display:block; height:100%; width:0; background:var(--rust); transition:width .08s linear}
 
   /* ---------- shell ---------- */
-  .shell{display:flex; align-items:flex-start; max-width:1400px; margin:0 auto}
+  .shell{display:flex; align-items:flex-start; max-width:1440px; margin:0 auto}
   nav.rail{
-    position:sticky; top:0; flex:0 0 236px; height:100vh; overflow-y:auto;
-    padding:34px 20px 40px 28px; border-right:1px solid var(--rule);
-    background:var(--paper);
+    position:sticky; top:0; flex:0 0 252px; height:100vh; overflow-y:auto;
+    padding:40px 22px 48px 32px; border-right:1px solid var(--rule);
+    scrollbar-width:thin;
   }
-  .rail .mark{font-family:var(--sans); font-weight:700; font-size:14px; letter-spacing:-.01em; line-height:1.35; margin-bottom:4px}
-  .rail .mark span{display:block; font-weight:450; color:var(--ink-2); font-size:12.5px}
-  .rail ol{list-style:none; margin:26px 0 0; padding:0; font-family:var(--sans); font-size:13.5px}
-  .rail li{margin:0}
+  .rail .mark{font-weight:700; font-size:14.5px; letter-spacing:-.022em; line-height:1.3; margin-bottom:3px}
+  .rail .mark span{display:block; font-weight:450; color:var(--ink-3); font-size:12.5px; letter-spacing:0; margin-top:3px}
+  .rail ol{list-style:none; counter-reset:nav; margin:30px 0 0; padding:0; font-size:13.5px}
+  .rail li{counter-increment:nav}
   .rail a{
-    display:block; padding:6px 10px 6px 12px; color:var(--ink-2); text-decoration:none;
-    border-left:2px solid transparent; transition:color .12s, border-color .12s;
+    display:flex; gap:10px; align-items:baseline; padding:6px 10px 6px 11px; color:var(--ink-2); text-decoration:none;
+    border-left:2px solid transparent; border-radius:0 var(--r-sm) var(--r-sm) 0;
+    transition:color .15s var(--ease), background .15s var(--ease), border-color .15s var(--ease);
   }
-  .rail a:hover{color:var(--ink)}
-  .rail a.on{color:var(--ink); border-left-color:var(--rust); font-weight:600}
-  .rail a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--slate); outline-offset:2px}
-  main{flex:1 1 auto; min-width:0; padding:0 clamp(20px,4vw,64px) 120px}
+  .rail a::before{content:counter(nav,decimal-leading-zero); font-size:10.5px; color:var(--ink-3); font-weight:600; letter-spacing:.02em; flex:0 0 auto; transition:color .15s}
+  .rail a:hover{color:var(--ink); background:rgba(255,255,255,.7)}
+  .rail a.on{color:var(--ink); border-left-color:var(--rust); background:var(--surface); font-weight:600; box-shadow:var(--sh-1)}
+  .rail a.on::before{color:var(--rust)}
+  a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--slate); outline-offset:3px; border-radius:3px}
+  main{flex:1 1 auto; min-width:0; padding:0 clamp(20px,4.2vw,72px) 132px}
 
   /* ---------- hero ---------- */
-  header.hero{padding:52px 0 30px; border-bottom:1px solid var(--rule)}
-  h1{font-size:clamp(31px,4.1vw,45px); line-height:1.1; margin:0 0 16px; font-weight:650; letter-spacing:-.028em; max-width:17ch}
-  .standfirst{font-size:18px; line-height:1.55; color:var(--ink-2); max-width:64ch; margin:0 0 26px; font-weight:400}
-  .asof{font-family:var(--sans); font-size:12.5px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:18px; margin-bottom:30px}
+  header.hero{padding:58px 0 36px; border-bottom:1px solid var(--rule)}
+  .status{display:inline-flex; align-items:center; gap:9px; padding:5px 13px 5px 10px; margin-bottom:22px;
+    background:var(--rust-soft); color:var(--rust); border-radius:100px; font-size:12.5px; font-weight:650; letter-spacing:-.005em}
+  .status i{width:7px; height:7px; border-radius:50%; background:var(--rust); box-shadow:0 0 0 0 rgba(176,55,44,.5); animation:pulse 2.4s var(--ease) infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(176,55,44,.45)}70%{box-shadow:0 0 0 7px rgba(176,55,44,0)}100%{box-shadow:0 0 0 0 rgba(176,55,44,0)}}
+  h1{font-size:clamp(32px,4.3vw,48px); line-height:1.08; margin:0 0 18px; font-weight:650; letter-spacing:-.033em; max-width:17ch}
+  .standfirst{font-size:18.5px; line-height:1.55; color:var(--ink-2); max-width:65ch; margin:0 0 28px; letter-spacing:-.006em}
+  .asof{font-size:12.5px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:10px 0; margin-bottom:32px}
+  .asof span{padding:0 16px; border-left:1px solid var(--rule-strong)}
+  .asof span:first-child{padding-left:0; border-left:none}
   .asof b{color:var(--ink-2); font-weight:600}
 
-  /* exposure band — the signature element */
-  .band{background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:22px 24px 20px}
-  .band h2{font-family:var(--sans); font-size:14px; margin:0 0 4px; font-weight:650}
-  .band p.sub{font-family:var(--sans); font-size:13px; color:var(--ink-2); margin:0 0 18px; max-width:70ch}
+  /* signature band */
+  .band{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:26px 28px 24px; box-shadow:var(--sh-2)}
+  .band h2{font-size:14.5px; margin:0 0 6px; font-weight:650; letter-spacing:-.018em}
+  .band p.sub{font-size:13px; color:var(--ink-2); margin:0 0 20px; max-width:72ch; line-height:1.55}
   .expwrap{position:relative; padding-bottom:2px}
-  .expbar{display:flex; height:52px; width:100%; border-radius:2px; overflow:hidden; border:1px solid var(--rule)}
+  .expbar{display:flex; height:54px; width:100%; border-radius:var(--r-sm); overflow:hidden; box-shadow:inset 0 0 0 1px rgba(16,26,34,.07)}
   .expbar > div{position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; min-width:0}
-  .expbar span{font-size:12.5px; font-weight:650; color:#fff; white-space:nowrap; padding:0 6px}
-  .expbar .seg-ot span{color:var(--ink)}
-  .exp-tick{position:absolute; top:52px; width:1px; height:13px; background:var(--rust)}
-  .exp-callout{margin-top:17px; text-align:right; font-size:12.5px; font-weight:650; color:var(--rust)}
+  .expbar span{font-size:12.5px; font-weight:650; color:#fff; white-space:nowrap; padding:0 6px; letter-spacing:-.005em}
+  .expbar .seg-ot span{color:var(--ink-2)}
   .seg-us{background:var(--slate)}
-  .seg-tar{background:repeating-linear-gradient(45deg,var(--rust),var(--rust) 5px,#93301F 5px,#93301F 10px)}
-  .seg-uk{background:#5E82A3}
-  .seg-cn{background:#8FA4B7}
-  .seg-eu{background:#B6C4D0; color:var(--ink)}
-  .seg-ot{background:#D8DFE5; color:var(--ink)}
-  .explegend{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:9px 24px; margin-top:18px; padding-top:16px; border-top:1px solid var(--rule-soft); font-size:12.5px; color:var(--ink-2)}
-  .explegend span{display:flex; align-items:flex-start; gap:9px; line-height:1.4}
-  .explegend i{flex:0 0 10px; height:10px; margin-top:4px; border-radius:1px}
-  .explegend b{color:var(--ink); font-weight:650; font-variant-numeric:tabular-nums}
-  .expnote{margin-top:16px; padding-top:14px; border-top:1px solid var(--rule-soft); font-family:var(--sans); font-size:13px; color:var(--ink-2); max-width:78ch}
+  .seg-tar{background:repeating-linear-gradient(45deg,var(--rust),var(--rust) 5px,#8F2C23 5px,#8F2C23 10px)}
+  .seg-uk{background:#5A7FA3} .seg-cn{background:#8CA2B6} .seg-eu{background:#B3C2CE} .seg-ot{background:#D9E0E6}
+  .exp-tick{position:absolute; top:54px; width:1px; height:13px; background:var(--rust)}
+  .exp-callout{margin-top:18px; text-align:right; font-size:12.5px; font-weight:650; color:var(--rust)}
+  .explegend{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px 26px; margin-top:20px; padding-top:18px; border-top:1px solid var(--rule-soft); font-size:12.5px; color:var(--ink-2)}
+  .explegend > span{display:flex; align-items:flex-start; gap:9px; line-height:1.42}
+  .explegend i{flex:0 0 10px; height:10px; margin-top:4px; border-radius:2px}
+  .explegend b{color:var(--ink); font-weight:650}
 
   /* ---------- sections ---------- */
-  section{padding:56px 0 8px; border-bottom:1px solid var(--rule)}
+  section{padding:64px 0 10px; border-bottom:1px solid var(--rule)}
   section:last-of-type{border-bottom:none}
-  h2.sec{font-size:clamp(22px,2.4vw,28px); font-weight:650; letter-spacing:-.022em; margin:0 0 8px; line-height:1.2}
-  .deck{color:var(--ink-2); max-width:68ch; margin:0 0 30px; font-size:16.5px; line-height:1.6}
-  h3{font-size:15px; font-weight:650; margin:34px 0 12px; letter-spacing:-.008em}
-  h4{font-size:13.5px; font-weight:650; margin:0 0 6px; letter-spacing:-.005em}
+  h2.sec{font-size:clamp(23px,2.5vw,29px); font-weight:650; letter-spacing:-.03em; margin:0 0 10px; line-height:1.18}
+  .deck{color:var(--ink-2); max-width:68ch; margin:0 0 32px; font-size:16.5px; line-height:1.6; letter-spacing:-.004em}
+  h3{font-size:15px; font-weight:650; margin:40px 0 14px; letter-spacing:-.018em}
+  h4{font-size:13.5px; font-weight:700; margin:0 0 8px; letter-spacing:-.012em}
   p{max-width:68ch}
-  .src{font-size:12px; color:var(--ink-3); margin-top:14px; max-width:80ch; line-height:1.55}
-  a{color:var(--slate)}
+  .src{font-size:12px; color:var(--ink-3); margin-top:18px; max-width:82ch; line-height:1.58}
+  a{color:var(--slate); text-underline-offset:2px}
 
-  /* vitals grid */
-  .vitals{display:grid; grid-template-columns:repeat(auto-fit,minmax(188px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
-  .vital{background:var(--surface); padding:16px 17px 15px}
-  .vital .lab{font-family:var(--sans); font-size:12px; color:var(--ink-2); margin-bottom:9px; line-height:1.3}
-  .vital .val{font-family:var(--sans); font-variant-numeric:tabular-nums; font-size:29px; font-weight:600; letter-spacing:-.025em; line-height:1}
-  .vital .met{font-family:var(--sans); font-size:11.5px; margin-top:8px; line-height:1.4; color:var(--ink-3)}
+  /* vitals */
+  .vitals{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:10px}
+  .vital{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:17px 18px 16px; position:relative; overflow:hidden;
+    box-shadow:var(--sh-1); transition:box-shadow .2s var(--ease), transform .2s var(--ease)}
+  .vital:hover{box-shadow:var(--sh-2); transform:translateY(-1px)}
+  .vital::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--rule-strong)}
+  .vital.hot::before{background:var(--rust)}
+  .vital.good::before{background:var(--spruce)}
+  .vital.mid::before{background:var(--amber)}
+  .vital .lab{font-size:12px; font-weight:500; color:var(--ink-2); margin:4px 0 10px; line-height:1.3}
+  .vital .val{font-size:29px; font-weight:650; letter-spacing:-.038em; line-height:1}
+  .vital .met{font-size:11.5px; margin-top:10px; line-height:1.45; color:var(--ink-3)}
   .up{color:var(--spruce)} .down{color:var(--rust)} .watch{color:var(--amber)} .neu{color:var(--slate)}
-  .vital.hot{box-shadow:inset 3px 0 0 var(--rust)}
-  .vital.good{box-shadow:inset 3px 0 0 var(--spruce)}
-  .vital.mid{box-shadow:inset 3px 0 0 var(--amber)}
 
-  /* generic panel */
-  .panel{background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:20px 22px; margin:18px 0}
-  .panel.spine-r{box-shadow:inset 4px 0 0 var(--rust)}
-  .panel.spine-g{box-shadow:inset 4px 0 0 var(--spruce)}
-  .panel.spine-a{box-shadow:inset 4px 0 0 var(--amber)}
-  .panel.spine-s{box-shadow:inset 4px 0 0 var(--slate)}
+  /* panels */
+  .panel{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:22px 24px; margin:20px 0; box-shadow:var(--sh-1); position:relative; overflow:hidden}
+  .panel::before{content:""; position:absolute; top:0; bottom:0; left:0; width:3px; background:var(--rule-strong)}
+  .panel.spine-r::before{background:var(--rust)}
+  .panel.spine-g::before{background:var(--spruce)}
+  .panel.spine-a::before{background:var(--amber)}
+  .panel.spine-s::before{background:var(--slate)}
 
   /* tables */
-  table{width:100%; border-collapse:collapse; font-family:var(--sans); font-size:13.5px; background:var(--surface)}
-  .tablewrap{border:1px solid var(--rule); border-radius:3px; overflow-x:auto; margin:16px 0}
-  th{text-align:left; font-weight:650; font-size:12px; color:var(--ink-2); padding:11px 14px; border-bottom:1px solid var(--rule); background:var(--surface-2); white-space:nowrap}
-  td{padding:12px 14px; border-bottom:1px solid var(--rule-soft); vertical-align:top; line-height:1.48}
+  .tablewrap{border:1px solid var(--rule); border-radius:var(--r); overflow-x:auto; overflow-y:hidden; margin:20px 0; background:var(--surface); box-shadow:var(--sh-1); -webkit-overflow-scrolling:touch}
+  .tablescroll{overflow-x:auto}
+  table{width:100%; border-collapse:collapse; font-size:13.5px; background:var(--surface)}
+  th{text-align:left; font-weight:650; font-size:11.5px; letter-spacing:.01em; color:var(--ink-2); padding:12px 16px; border-bottom:1px solid var(--rule); background:var(--surface-2); white-space:nowrap}
+  td{padding:14px 16px; border-bottom:1px solid var(--rule-soft); vertical-align:top; line-height:1.55}
   tr:last-child td{border-bottom:none}
-  td.n{font-variant-numeric:tabular-nums; white-space:nowrap}
-  .tag{display:inline-block; font-size:11px; font-weight:650; padding:2.5px 8px; border-radius:2px; white-space:nowrap}
+  tbody tr{transition:background .12s var(--ease)}
+  tbody tr:hover{background:var(--surface-2)}
+  td.n{white-space:nowrap}
+  .tag{display:inline-block; font-size:11px; font-weight:650; padding:3px 9px; border-radius:100px; white-space:nowrap; letter-spacing:-.005em}
   .t-exp{background:var(--spruce-soft); color:var(--spruce)}
   .t-mix{background:var(--amber-soft); color:var(--amber)}
   .t-con{background:var(--rust-soft); color:var(--rust)}
   .t-neu{background:var(--slate-soft); color:var(--slate)}
 
-  /* filter + control buttons */
-  .controls{display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 4px; font-family:var(--sans)}
+  /* controls */
+  .controls{display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 4px}
   button.pill{
-    font-family:var(--sans); font-size:13px; font-weight:550; padding:7px 15px; cursor:pointer;
-    background:var(--surface); color:var(--ink-2); border:1px solid var(--rule); border-radius:2px;
-    transition:background .12s,color .12s,border-color .12s;
+    font-family:inherit; font-size:13px; font-weight:550; padding:8px 16px; cursor:pointer;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--rule); border-radius:100px;
+    box-shadow:var(--sh-1); transition:all .16s var(--ease);
   }
-  button.pill:hover{border-color:var(--ink-3); color:var(--ink)}
-  button.pill[aria-pressed="true"]{background:var(--ink); color:#fff; border-color:var(--ink)}
+  button.pill:hover{border-color:var(--rule-strong); color:var(--ink); transform:translateY(-1px)}
+  button.pill[aria-pressed="true"]{background:var(--ink); color:#fff; border-color:var(--ink); box-shadow:0 2px 8px -2px rgba(16,26,34,.4)}
 
   /* scenario */
-  .scen-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:3px; margin-top:18px; overflow:hidden}
-  .scen-cell{background:var(--surface); padding:15px 16px}
-  .scen-cell .lab{font-family:var(--sans); font-size:11.5px; color:var(--ink-2); margin-bottom:8px}
-  .scen-cell .val{font-family:var(--sans); font-size:23px; font-weight:600; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
-  #scenNarr{margin-top:18px}
+  .scen-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:10px; margin-top:20px}
+  .scen-cell{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:16px 17px; box-shadow:var(--sh-1)}
+  .scen-cell .lab{font-size:11.5px; color:var(--ink-2); margin-bottom:9px; line-height:1.3}
+  .scen-cell .val{font-size:23px; font-weight:650; letter-spacing:-.034em}
+  #scenNarr{margin-top:20px}
 
-  /* charts */
-  figure{margin:20px 0; background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:20px 22px 16px}
-  figcaption{font-family:var(--sans); font-size:12.5px; color:var(--ink-2); margin-top:12px; line-height:1.5}
+  /* figures */
+  figure{margin:24px 0; background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:24px 26px 18px; box-shadow:var(--sh-1)}
+  figcaption{font-size:12.5px; color:var(--ink-2); margin-top:16px; padding-top:14px; border-top:1px solid var(--rule-soft); line-height:1.55; max-width:80ch}
   svg{display:block; width:100%; height:auto; overflow:visible}
   svg text{font-family:var(--sans); font-variant-numeric:tabular-nums}
 
+  /* kpi strip */
+  .kpi-inline{display:grid; grid-template-columns:repeat(auto-fit,minmax(152px,1fr)); gap:10px; margin:22px 0}
+  .kpi-inline > div{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:15px 17px; box-shadow:var(--sh-1)}
+  .kpi-inline .k{font-size:11.5px; color:var(--ink-2); margin-bottom:8px; line-height:1.3}
+  .kpi-inline .v{font-size:22px; font-weight:650; letter-spacing:-.034em}
+
+  /* heat grid */
+  .hm{border:1px solid var(--rule); border-radius:var(--r); background:var(--surface); overflow:hidden; margin:20px 0; box-shadow:var(--sh-1)}
+  .hm-head,.hm-row{display:grid; grid-template-columns:minmax(112px,1.7fr) repeat(3,minmax(54px,1fr))}
+  .hm-head{background:var(--surface-2); border-bottom:1px solid var(--rule)}
+  .hm-head span{font-size:11px; font-weight:650; color:var(--ink-2); padding:10px 6px; text-align:center; line-height:1.25}
+  .hm-head span:first-child{text-align:left; padding-left:16px}
+  .hm-row{border-bottom:1px solid var(--rule-soft); align-items:center; transition:background .12s var(--ease)}
+  .hm-row:last-child{border-bottom:none}
+  .hm-row:hover{background:var(--surface-2)}
+  .hm-row b{font-weight:550; font-size:13px; padding:8px 6px 8px 16px}
+  .hm-c{margin:3px; height:26px; border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:700; color:#fff; letter-spacing:.005em}
+  .c-g{background:var(--spruce)} .c-a{background:var(--amber)} .c-r{background:var(--rust)}
+  .hm-legend{display:flex; flex-wrap:wrap; gap:6px 20px; font-size:12px; color:var(--ink-2); margin-top:12px}
+  .hm-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:7px}
+
+  /* provincial scale */
+  .psc{margin:20px 0; border:1px solid var(--rule); border-radius:var(--r); background:var(--surface); padding:24px 26px 18px; box-shadow:var(--sh-1)}
+  .psc-row{display:grid; grid-template-columns:minmax(88px,136px) 1fr; align-items:center; gap:16px; margin-bottom:11px}
+  .psc-name{font-size:13.5px; font-weight:600; letter-spacing:-.012em}
+  .psc-track{position:relative; height:24px; border-radius:100px;
+    background:linear-gradient(90deg,var(--rust-soft) 0%,var(--surface-2) 50%,var(--spruce-soft) 100%);
+    box-shadow:inset 0 0 0 1px rgba(16,26,34,.05)}
+  .psc-dot{position:absolute; top:4px; width:16px; height:16px; border-radius:50%; transform:translateX(-50%); border:2px solid var(--surface); box-shadow:0 1px 3px rgba(16,26,34,.22)}
+  .psc-axis{display:grid; grid-template-columns:minmax(88px,136px) 1fr; gap:16px; margin-top:6px}
+  .psc-axis div{display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-3)}
+
   /* calendar */
-  .cal{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
-  .cal .row{display:grid; grid-template-columns:110px 1fr 116px; gap:0; background:var(--surface); align-items:baseline; padding:13px 16px; font-family:var(--sans); font-size:13.5px}
-  .cal .row .d{font-variant-numeric:tabular-nums; color:var(--ink-2); font-size:12.5px}
+  .cal{border:1px solid var(--rule); border-radius:var(--r); overflow:hidden; background:var(--surface); box-shadow:var(--sh-1)}
+  .cal .row{display:grid; grid-template-columns:116px 1fr 118px; align-items:baseline; padding:15px 18px; font-size:13.5px; border-bottom:1px solid var(--rule-soft); transition:background .12s var(--ease)}
+  .cal .row:last-child{border-bottom:none}
+  .cal .row:hover{background:var(--surface-2)}
+  .cal .row .d{color:var(--ink-2); font-size:12.5px}
   .cal .row .c{text-align:right; font-size:12px; font-weight:650}
   .cal .row.past{background:var(--surface-2); color:var(--ink-3)}
   .cal .row.past .c{color:var(--ink-3); font-weight:500}
 
-  /* exposure checker */
-  .tool{background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:22px}
-  .tool .fields{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:6px}
-  label.f{font-family:var(--sans); font-size:12.5px; color:var(--ink-2); display:flex; flex-direction:column; gap:6px}
-  select{font-family:var(--sans); font-size:14px; padding:8px 10px; border:1px solid var(--rule); border-radius:2px; background:var(--surface-2); color:var(--ink); min-width:220px}
-  #toolOut{margin-top:20px; padding-top:18px; border-top:1px solid var(--rule-soft); font-family:var(--sans); font-size:14px; line-height:1.6}
-  #toolOut .score{font-size:15px; font-weight:650; margin-bottom:8px}
+  /* tool */
+  .tool{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); padding:26px; box-shadow:var(--sh-1)}
+  .tool .fields{display:flex; flex-wrap:wrap; gap:16px; margin-bottom:6px}
+  label.f{font-size:12.5px; color:var(--ink-2); display:flex; flex-direction:column; gap:7px; font-weight:500}
+  select{font-family:inherit; font-size:14px; padding:10px 12px; border:1px solid var(--rule); border-radius:var(--r-sm); background:var(--surface-2); color:var(--ink); min-width:224px; cursor:pointer; transition:border-color .15s}
+  select:hover{border-color:var(--rule-strong)}
+  #toolOut{margin-top:22px; padding-top:20px; border-top:1px solid var(--rule-soft); font-size:14px; line-height:1.6}
+  #toolOut .score{font-size:15.5px; font-weight:700; margin-bottom:10px; letter-spacing:-.018em}
 
-  details{background:var(--surface); border:1px solid var(--rule); border-radius:3px; margin:10px 0; padding:0}
-  summary{cursor:pointer; padding:13px 18px; font-family:var(--sans); font-size:14px; font-weight:600; list-style:none}
+  /* accordions */
+  details{background:var(--surface); border:1px solid var(--rule); border-radius:var(--r); margin:10px 0; box-shadow:var(--sh-1); overflow:hidden}
+  details[open]{box-shadow:var(--sh-2)}
+  summary{cursor:pointer; padding:15px 20px; font-size:14px; font-weight:600; list-style:none; letter-spacing:-.014em; transition:background .12s var(--ease)}
+  summary:hover{background:var(--surface-2)}
   summary::-webkit-details-marker{display:none}
-  summary::before{content:"+"; display:inline-block; width:16px; color:var(--ink-3); font-weight:400}
-  details[open] summary::before{content:"–"}
-  details .body{padding:0 18px 18px 34px; font-size:15.5px}
-  details .body p{margin:0 0 10px}
+  summary::before{content:"+"; display:inline-block; width:18px; color:var(--ink-3); font-weight:400}
+  details[open] summary::before{content:"\2013"}
+  details .body{padding:0 20px 20px 38px; font-size:15px; line-height:1.62; color:var(--ink-2)}
+  details .body p{margin:0 0 12px}
+  details .body p:last-child{margin-bottom:0}
+  details .body strong,details .body em{color:var(--ink)}
 
   ul.clean{padding-left:20px; max-width:70ch}
-  ul.clean li{margin-bottom:8px}
+  ul.clean li{margin-bottom:10px; line-height:1.58}
+  ul.clean li::marker{color:var(--ink-3)}
+  .deck strong,p strong,li strong{font-weight:650; color:var(--ink)}
 
-  footer{padding:48px 0 0; font-family:var(--sans); font-size:12.5px; color:var(--ink-3); max-width:80ch}
+  footer{padding:56px 0 0; font-size:12.5px; color:var(--ink-3); max-width:82ch; line-height:1.6}
 
   @media (max-width:900px){
-    body{font-size:16px}
     .shell{display:block}
     nav.rail{position:sticky; top:0; z-index:20; height:auto; width:100%; flex:none;
-      padding:10px 14px; border-right:none; border-bottom:1px solid var(--rule); background:rgba(231,235,238,.96); backdrop-filter:blur(6px)}
+      padding:10px 14px; border-right:none; border-bottom:1px solid var(--rule);
+      background:rgba(242,244,246,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px)}
     .rail .mark{display:none}
-    .rail ol{display:flex; margin:0; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+    .rail ol{display:flex; margin:0; gap:3px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
     .rail ol::-webkit-scrollbar{display:none}
-    .rail a{white-space:nowrap; border-left:none; border-bottom:2px solid transparent; padding:6px 10px}
-    .rail a.on{border-left:none; border-bottom-color:var(--rust)}
-    main{padding:0 16px 80px}
-    header.hero{padding:30px 0 24px}
-    .cal .row{grid-template-columns:1fr; gap:3px}
+    .rail a{white-space:nowrap; border-left:none; border-radius:100px; padding:7px 13px; box-shadow:none}
+    .rail a::before{display:none}
+    .rail a.on{border-left:none; background:var(--ink); color:#fff; box-shadow:none}
+    main{padding:0 16px 88px}
+    header.hero{padding:32px 0 26px}
+    .band{padding:20px 18px 18px}
+    .asof span{padding:0 12px 0 0; border-left:none; border-right:1px solid var(--rule-strong)}
+    .asof span:last-child{border-right:none}
+    .cal .row{grid-template-columns:1fr; gap:4px}
     .cal .row .c{text-align:left}
-    .expbar{height:44px}
-    .expbar span{font-size:11.5px; padding:0 6px}
-    .seg-us span{font-size:11px}
-    .exp-tick{top:44px}
+    .expbar{height:46px}
+    .expbar span{font-size:11px; padding:0 5px}
+    .exp-tick{top:46px}
     .exp-callout{text-align:left; font-size:12px}
+    .hm-row b{font-size:12px; padding-left:11px}
+    .hm-c{font-size:9.5px; height:24px}
+    figure{padding:18px 16px 14px}
+    section{padding:44px 0 8px}
   }
-  /* --- polish pass --- */
-  .vital .val{font-weight:650; letter-spacing:-.032em; font-size:28px}
-  .vital .lab{font-weight:500}
-  tbody tr{transition:background .1s}
-  tbody tr:hover{background:var(--surface-2)}
-  td{line-height:1.55}
-  .tag{letter-spacing:-.005em}
-  .deck strong,p strong,li strong{font-weight:650; color:var(--ink)}
-  details .body{font-size:15px; line-height:1.62; color:var(--ink-2)}
-  details .body strong,details .body em{color:var(--ink)}
-  .scen-cell .val{font-weight:650; letter-spacing:-.028em}
-  .band h2{letter-spacing:-.01em}
-  ul.clean li{line-height:1.58}
-  figcaption{max-width:78ch}
-  .cal .row strong{font-weight:650}
-  ::selection{background:var(--slate-soft)}
-  /* --- sector heat grid --- */
-  .hm{border:1px solid var(--rule); border-radius:3px; background:var(--surface); overflow:hidden; margin:18px 0}
-  .hm-head,.hm-row{display:grid; grid-template-columns:minmax(112px,1.7fr) repeat(3,minmax(54px,1fr))}
-  .hm-head{background:var(--surface-2); border-bottom:1px solid var(--rule)}
-  .hm-head span{font-size:11px; font-weight:650; color:var(--ink-2); padding:9px 6px; text-align:center; line-height:1.25}
-  .hm-head span:first-child{text-align:left; padding-left:14px}
-  .hm-row{border-bottom:1px solid var(--rule-soft); align-items:center}
-  .hm-row:last-child{border-bottom:none}
-  .hm-row b{font-weight:550; font-size:13px; padding:8px 6px 8px 14px}
-  .hm-c{margin:3px; height:25px; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:700; color:#fff; letter-spacing:.01em}
-  .c-g{background:var(--spruce)} .c-a{background:var(--amber)} .c-r{background:var(--rust)}
-  .hm-legend{display:flex; flex-wrap:wrap; gap:5px 18px; font-size:12px; color:var(--ink-2); margin-top:10px}
-  .hm-legend i{width:10px;height:10px;border-radius:1px;display:inline-block;margin-right:6px}
-  /* --- provincial position scale --- */
-  .psc{margin:18px 0; border:1px solid var(--rule); border-radius:3px; background:var(--surface); padding:20px 22px 16px}
-  .psc-row{display:grid; grid-template-columns:minmax(88px,132px) 1fr; align-items:center; gap:14px; margin-bottom:10px}
-  .psc-name{font-size:13.5px; font-weight:600}
-  .psc-track{position:relative; height:22px; border-radius:2px;
-    background:linear-gradient(90deg,var(--rust-soft) 0%,var(--surface-2) 50%,var(--spruce-soft) 100%)}
-  .psc-dot{position:absolute; top:3px; width:16px; height:16px; border-radius:50%; transform:translateX(-50%); border:2px solid var(--surface)}
-  .psc-axis{display:grid; grid-template-columns:minmax(88px,132px) 1fr; gap:14px; margin-top:4px}
-  .psc-axis div{display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-3)}
-  .kpi-inline{display:flex; flex-wrap:wrap; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden; margin:18px 0}
-  .kpi-inline div{background:var(--surface); padding:13px 16px; flex:1 1 150px}
-  .kpi-inline .k{font-size:11.5px; color:var(--ink-2); margin-bottom:6px}
-  .kpi-inline .v{font-size:21px; font-weight:650; letter-spacing:-.025em; font-variant-numeric:tabular-nums}
-  @media (max-width:640px){
-    .hm-row b{font-size:12px; padding-left:10px}
-    .hm-c{font-size:9.5px; height:23px}
+  @media print{
+    nav.rail,#progress,.controls{display:none}
+    body{background:#fff}
+    main{padding:0}
+    .vital,.panel,figure,.tablewrap,details{break-inside:avoid; box-shadow:none}
+    details{}
+    details .body{display:block!important}
   }
 </style>
 </head>
 <body>
+<div id="progress" aria-hidden="true"><span></span></div>
+
 <div class="shell">
 
 <nav class="rail" aria-label="Sections">
@@ -269,14 +313,15 @@
 <main>
 
 <header class="hero">
+  <div class="status"><i></i>Trade dispute escalating · import bans begin 29 September</div>
   <h1>Canada's economy, read from the outside in</h1>
-  <p class="standfirst">For four months the domestic numbers improved while the external relationship broke down. In August the domestic side gave some of it back. Canada's counter-tariffs take effect at one minute past midnight tonight, with no talks scheduled. Almost everything about the next ten years turns on how long this standoff lasts.</p>
+  <p class="standfirst">Last week the dispute stopped being about price. Canada's counter-tariffs landed on 8 September; within hours Washington signed orders banning Canadian alcohol, dairy and motorcycles outright from 29 September. Tariffs make goods expensive. Bans make them unsellable. That is a different kind of problem, and it arrived alongside oil above US$100.</p>
   <div class="asof">
-    <span><b>Data as of</b> 7 September 2026</span>
+    <span><b>Data as of</b> 14 September 2026</span>
+    <span><b>Latest CPI</b> August, released today</span>
     <span><b>Latest jobs</b> August, released 4 Sep</span>
     <span><b>Latest trade</b> July, released 3 Sep</span>
     <span><b>Latest GDP</b> Q2, released 28 Aug</span>
-    <span><b>Latest CPI</b> July, released 17 Aug</span>
   </div>
 
   <div class="band">
@@ -297,10 +342,10 @@
     <div class="explegend">
       <span><i style="background:var(--slate)"></i><span style="display:block"><b>64.6%</b> United States, tariff-free or CUSMA-compliant</span></span>
       <span><i class="seg-tar"></i><span style="display:block"><b>3.4%</b> United States, under the 22 August 50% tariffs</span></span>
-      <span><i style="background:#5E82A3"></i><span style="display:block"><b>9.2%</b> United Kingdom — mostly gold, not a real market</span></span>
-      <span><i style="background:#8FA4B7"></i><span style="display:block"><b>5.0%</b> China</span></span>
-      <span><i style="background:#B6C4D0"></i><span style="display:block"><b>5.0%</b> European Union</span></span>
-      <span><i style="background:#D8DFE5"></i><span style="display:block"><b>12.8%</b> Rest of world</span></span>
+      <span><i style="background:#5A7FA3"></i><span style="display:block"><b>9.2%</b> United Kingdom — mostly gold, not a real market</span></span>
+      <span><i style="background:#8CA2B6"></i><span style="display:block"><b>5.0%</b> China</span></span>
+      <span><i style="background:#B3C2CE"></i><span style="display:block"><b>5.0%</b> European Union</span></span>
+      <span><i style="background:#D9E0E6"></i><span style="display:block"><b>12.8%</b> Rest of world</span></span>
     </div>
     <div class="expnote">
       Read it carefully. The UK's 9.2% is largely unwrought gold moving to London vaults for foreign investors, not British demand for Canadian goods. Strip that out and the honest picture is: roughly two-thirds United States, about 5% China, about 5% the EU, and a long tail. The EU and China together absorb about a tenth of what the US does, which is why "diversify away from America" is a decade-long project rather than a plan for this year.
@@ -326,24 +371,29 @@
       <div class="met">Unchanged, still the lowest since 2024 and 0.7pt below a year ago. But employment fell 42,000 against a forecast +15,000, ending a run of 181,000 gains from April to July.</div>
     </div>
     <div class="vital mid">
-      <div class="lab">CPI inflation, July</div>
+      <div class="lab">CPI inflation, August</div>
       <div class="val watch">3.0%</div>
-      <div class="met">Up from 2.8%. Gasoline +25.7% on the Middle East oil shock. Core is calm: CPI-trim 1.9%, CPI-median 2.0%. The August reading lands 14 September.</div>
+      <div class="met">Unchanged, pinned at the ceiling of the Bank's 1–3% band. Gasoline inflation eased to 22.8% from 25.7%; excluding it, prices rose 2.4%. Grocery inflation fell below headline for the first time since July 2024.</div>
     </div>
     <div class="vital">
       <div class="lab">Bank of Canada policy rate</div>
       <div class="val neu">2.25%</div>
-      <div class="met">Held a seventh straight time on 2 September, with a hawkish tilt — the Bank flagged rising upside risk to inflation. The debate has shifted from further cuts toward a possible 2027 hike. Next decision 28 October, with fresh forecasts.</div>
+      <div class="met">A seventh straight hold on 2 September, with a hawkish tilt. Macklem called the tariffs steep but narrowly based, and named energy the bigger inflation risk. Capital Economics is pulling forward its first-hike call. Next decision 28 October.</div>
     </div>
     <div class="vital hot">
-      <div class="lab">US tariff on targeted goods</div>
+      <div class="lab">US measures on Canadian goods</div>
       <div class="val down">50%</div>
-      <div class="met">In force since 22 August on about US$20bn of exports — 5.5% of everything Canada ships south. Canada's counter-tariffs on roughly 700 US products begin at 12:01 a.m. tonight.</div>
+      <div class="met">Tariffs since 22 August on ~5.5% of US-bound exports. On 8 September Trump signed five more proclamations: import bans on most Canadian alcohol, some dairy and motorcycles from 29 September, and a standing threat to double auto tariffs to 50% on 1 January.</div>
     </div>
     <div class="vital">
       <div class="lab">Canadian dollar</div>
-      <div class="val neu">72.3¢</div>
-      <div class="met">About C$1.384 per USD on 4 September, little changed on the month. A five-bank consensus sees roughly C$1.37 by year-end — mild appreciation, not a rally.</div>
+      <div class="val neu">71.9¢</div>
+      <div class="met">Around C$1.39 per USD, holding a 1.37–1.41 range. High oil and a hawkish Bank support it; tariffs and the US rate advantage cap it. Consensus sees ~C$1.37 by year-end.</div>
+    </div>
+    <div class="vital mid">
+      <div class="lab">WTI crude</div>
+      <div class="val watch">US$102</div>
+      <div class="met">Settled at $102.48 on 10 September, the highest since May, with Brent at $107.63. Oil is up over 18% this month as attacks on shipping intensify. Goldman flags risk above $120.</div>
     </div>
     <div class="vital mid">
       <div class="lab">Merchandise trade balance, July</div>
@@ -396,17 +446,24 @@
   <p class="deck">Two things this summer will outlast any budget line: the US declined to renew CUSMA, and talks collapsed into a 50% tariff. Trade policy has stopped being a background condition and become a recurring annual risk.</p>
 
   <figure>
-    <svg viewBox="0 0 720 196" role="img" aria-label="Timeline of trade escalation from 2025 sectoral tariffs through the July 2026 CUSMA non-renewal, the August 2026 collapse of talks and 50 percent Section 338 tariffs, Canada's September 8 counter-tariffs, and the first annual CUSMA review in July 2027.">
+    <svg viewBox="0 0 720 196" role="img" aria-label="Timeline of trade escalation: July 2026 US declines CUSMA renewal; 22 August 50 percent Section 338 tariffs; 8 September Canada retaliates and the US signs five further proclamations; 29 September US import bans on alcohol, dairy and motorcycles; 1 January 2027 threatened doubling of auto tariffs; 1 July 2027 first annual CUSMA review.">
       <g id="tariffTimeline"></g>
     </svg>
-    <figcaption>Eighteen months of escalation. The blue markers are structural — they change the rules. The red are cyclical — they change the price. Only the blue ones are hard to undo.</figcaption>
+    <figcaption>The escalation ladder. Blue markers are structural — they change the rules. Red markers changed the price, until 29 September, when they start changing access instead.</figcaption>
   </figure>
 
   <div class="panel spine-r">
     <h4>Live position, 7 September</h4>
     <p style="margin:0 0 9px"><strong>United States.</strong> 50% under Section 338 since 22 August on about US$20bn of goods — 5.5% of US-bound exports. Wine, furniture, dairy, cement, clothing, hockey equipment. First expressed use of that statute, framed as an offset to Canadian treatment of alcohol, dairy and vehicles. BMO puts the drag at roughly 0.5pp of GDP growth.</p>
-    <p style="margin:0 0 9px"><strong>Canada.</strong> About 700 products worth C$27.6bn, at 12:01 a.m. tonight: steel, dairy, seafood, furniture, tools, appliances, farm equipment, electronics. Paired with $7.5bn in worker and business support and a $1.5bn top-up to the Regional Tariff Response Initiative.</p>
-    <p style="margin:0"><strong>Talks.</strong> None scheduled. LeBlanc confirmed nothing was booked over the long weekend and nothing has been announced since. The open question is no longer whether the counter-tariffs land, but what Washington does after they do.</p>
+    <p style="margin:0 0 9px"><strong>Canada.</strong> Counter-tariffs took effect 12:01 a.m. on 8 September — 15%, 25% and 50% across roughly 700 products worth C$27.6bn, bringing total affected tariff lines past 800. US steel and aluminum moved from a 25% to a 50% counter-rate. Paired with $7.5bn in worker and business support.</p>
+    <p style="margin:0 0 9px"><strong>Washington's answer, the same night.</strong> Five further Section 338 proclamations. From <strong>29 September</strong>, most Canadian alcoholic beverages, certain dairy and whey products, molasses, motorcycles and mopeds are <em>banned from import</em> outright — CUSMA origin does not exempt them. From 15 September the 50% tariff list is reshuffled: cement, rock salt and hospital pads out; ATVs, more cheeses, motorboats, paper, wood, furniture, lighting and mattresses in. US agencies were also ordered to strip Canadian-origin goods from government contracts.</p>
+    <p style="margin:0"><strong>Talks.</strong> No formal negotiations. Greer and LeBlanc have spoken and are expected to speak again — the only thread still attached. The threat to double auto tariffs to 50% on 1 January remains live.</p>
+  </div>
+
+  <div class="panel spine-r">
+    <h4>The escalation just changed category</h4>
+    <p style="margin:0 0 10px">A tariff is a price. However punitive, a 50% duty leaves a market that a firm can serve at a loss, hedge, or sell into once the policy turns. An import ban is not a price — it is the removal of the market. A Canadian distiller with US distribution now has none from 29 September, regardless of what it charges.</p>
+    <p style="margin:0">Washington's own officials put the banned volume at single-digit billions, so the direct hit is small. The signal is not. Bans reach past tariff schedules into market access itself, which is the one thing CUSMA was supposed to guarantee — and the administration has explicitly stated that CUSMA origin provides no exemption. For any firm deciding where to site a plant for the next twenty years, that sentence does more damage than the duty rate.</p>
   </div>
 
   <div class="panel spine-a">
@@ -423,7 +480,10 @@
       <thead><tr><th>Measure</th><th>Rate</th><th>Coverage</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td>US Section 338 tariffs</td><td class="n">50%</td><td>~US$20bn (5.5% of US-bound)</td><td><span class="tag t-con">In force 22 Aug</span></td></tr>
-        <tr><td>Canadian counter-tariffs</td><td class="n">15 / 25 / 50%</td><td>~700 products, C$27.6bn</td><td><span class="tag t-con">12:01 a.m., 8 Sep</span></td></tr>
+        <tr><td>Canadian counter-tariffs</td><td class="n">15 / 25 / 50%</td><td>~700 products, C$27.6bn; 800+ lines total</td><td><span class="tag t-con">In force 8 Sep</span></td></tr>
+        <tr><td><strong>US import bans</strong></td><td class="n">Prohibition</td><td>Most alcohol, some dairy and whey, molasses, motorcycles</td><td><span class="tag t-con">From 29 Sep</span></td></tr>
+        <tr><td>US 50% list reshuffle</td><td class="n">50%</td><td>Adds ATVs, cheeses, motorboats, paper, wood, furniture, mattresses</td><td><span class="tag t-con">From 15 Sep</span></td></tr>
+        <tr><td>US auto tariff increase</td><td class="n">25% → 50%</td><td>All cars, trucks and parts</td><td><span class="tag t-mix">Threatened, 1 Jan 2027</span></td></tr>
         <tr><td>US steel and aluminum</td><td class="n">50%</td><td>Sectoral, all origins</td><td><span class="tag t-con">In force since 2025</span></td></tr>
         <tr><td>US autos and parts</td><td class="n">Sectoral</td><td>Assembly and components</td><td><span class="tag t-con">In force</span></td></tr>
         <tr><td>Canadian tariffs still standing</td><td class="n">25%</td><td>US vehicles; C$15.6bn steel and aluminum</td><td><span class="tag t-con">In force</span></td></tr>
@@ -433,7 +493,7 @@
       </tbody>
     </table>
   </div>
-  <p class="src">Sources: USTR statement on the USMCA joint review, 1 July 2026; Congressional Research Service, US–Canada trade relations, updated 25 August 2026; White &amp; Case and McMillan on Article 34.7; Department of Finance Canada countermeasures announcement; BMO Economics.</p>
+  <p class="src">Sources: White House Section 338 proclamations, 8 September 2026, and accompanying fact sheet; Department of Finance Canada, list of US products subject to counter-tariffs effective 8 September; Norton Rose Fulbright and GHY trade-compliance analyses; USTR statement on the USMCA joint review, 1 July 2026; CBC, Reuters and AFP reporting, 8–9 September; BMO Economics.</p>
 </section>
 
 <!-- ============ PARTNERS ============ -->
@@ -524,7 +584,7 @@
       <thead><tr><th>Sector</th><th>Direction</th><th>The evidence</th><th>Ten-year call</th></tr></thead>
       <tbody>
         <tr data-cat="exp"><td><strong>Oil and gas</strong></td><td><span class="tag t-exp">Expanding</span></td>
-          <td>Revenue estimated at $210bn for 2026, up from $167bn, on the post-Hormuz price surge. Forecasts raised three times, to roughly US$85 WTI. Crude export values have now fallen three months running, though.</td>
+          <td>Revenue estimated at $210bn for 2026 against $167bn last year. WTI settled at $102 on 10 September and Brent at $108 — up over 18% this month — well above the US$85 that 2026 forecasts assumed. Crude export values had been falling for three months before this leg.</td>
           <td>Strong, with a tell: capex is flat despite the windfall. Producers are returning cash rather than drilling — the single most revealing fact about Canadian investment culture.</td></tr>
         <tr data-cat="exp"><td><strong>Critical minerals</strong></td><td><span class="tag t-exp">Expanding</span></td>
           <td>Red Chris alone would lift Canadian copper output over 15%. Foran McIlvenna Bay, Sisson tungsten, plus nickel and graphite files in the Major Projects Office queue.</td>
@@ -551,7 +611,7 @@
           <td>+17,000 in July, yet vacancies for degree-requiring roles fell 6.9% year over year and self-employment is up 2.7% since April — often involuntary contracting.</td>
           <td>Bifurcating hard. AI-, defence- and energy-adjacent work grows; generalist consulting and routine analysis compress.</td></tr>
         <tr data-cat="mix"><td><strong>Agriculture and agri-food</strong></td><td><span class="tag t-mix">Mixed</span></td>
-          <td>Lost 9,600 jobs in July and natural resources shed 7,700 more in August. But Chinese duties on canola meal, peas, lobster and crab are gone and seed duties are down toward 15%.</td>
+          <td>Lost 9,600 jobs in July and natural resources shed 7,700 more in August. Chinese duties on canola meal, peas, lobster and crab are gone and seed duties are down toward 15% — but from 29 September certain dairy and whey exports are banned from the US outright, and most alcohol with them.</td>
           <td>Prices and access improving, employment still falling. Prairie farm incomes up, farm employment down — both true, because the sector is mechanising.</td></tr>
         <tr data-cat="mix"><td><strong>Wholesale and retail</strong></td><td><span class="tag t-mix">Mixed</span></td>
           <td>+21,000 in July; household spending rose 0.8% in Q2.</td>
@@ -560,13 +620,13 @@
           <td>Down roughly 50,000 year over year, with over 60% of the sector substantially US-exposed. August was an odd exception at +22,000 — the month's only significant gain, most plausibly tariff front-running.</td>
           <td>The core structural loss of this decade. Some returns if tariffs ease; a meaningful share does not, because relocated supply chains rarely relocate twice.</td></tr>
         <tr data-cat="con"><td><strong>Autos and parts</strong></td><td><span class="tag t-con">Contracting</span></td>
-          <td>Parts employment fell 8.7% year over year by February, about 6,200 jobs. GM Oshawa dropped a shift (~500 jobs). Stellantis Brampton has built nothing for nearly two years with 2,200 on layoff.</td>
+          <td>Parts employment fell 8.7% year over year by February, about 6,200 jobs. GM Oshawa dropped a shift (~500 jobs); Stellantis Brampton has built nothing for nearly two years with 2,200 on layoff. Washington's threat to double auto tariffs to 50% on 1 January is still live.</td>
           <td>Structurally impaired. Parts cross the border repeatedly, so tariffs compound at each crossing and suppliers have the least pricing power. Chinese EV quotas add domestic competition.</td></tr>
         <tr data-cat="con"><td><strong>Steel</strong></td><td><span class="tag t-con">Contracting</span></td>
           <td>About 2,000 layoffs since the 50% tariff, including 300 at Algoma in March. The United Steelworkers warn of thousands more.</td>
           <td>Survives only on sustained Buy Canadian procurement and real infrastructure demand. Sault Ste. Marie and Hamilton are the communities to watch.</td></tr>
         <tr data-cat="con"><td><strong>Aluminum</strong></td><td><span class="tag t-con">Contracting</span></td>
-          <td>Canada is the largest US supplier and faces the same 50% wall. Rio Tinto and others have explored a European pivot.</td>
+          <td>Canada is the largest US supplier and faces the same 50% wall, with further aluminum products added to the US list on 15 September. Rio Tinto and others have explored a European pivot.</td>
           <td>Better odds than steel — more fungible product, a real Quebec power-cost advantage, and rising European demand from defence and grid spending.</td></tr>
         <tr data-cat="con"><td><strong>Softwood lumber</strong></td><td><span class="tag t-con">Contracting</span></td>
           <td>Named by Finance Canada among the least diversified and most exposed sectors.</td>
@@ -608,19 +668,19 @@
 
   <div class="panel spine-a">
     <h4>The manufacturing gain is probably a mirage</h4>
-    <p style="margin:0">Manufacturing added 22,000 jobs in the sector this dashboard calls the decade's core structural loss. It is still down about 50,000 year over year, and the likeliest explanation is firms pulling production forward ahead of the 22 August tariffs and tonight's counter-tariffs. TD read the July trade data the same way. If that's right, front-running borrows from the months after — so September and October should be weak, and those are the prints that settle it.</p>
+    <p style="margin:0">Manufacturing added 22,000 jobs in the sector this dashboard calls the decade's core structural loss. It is still down about 50,000 year over year, and the likeliest explanation is firms pulling production forward ahead of the 22 August tariffs and the 8 September counter-tariffs. TD read the July trade data the same way. If that's right, front-running borrows from the months after — so September and October should be weak, and those are the prints that settle it.</p>
   </div>
 
   <figure>
-    <svg viewBox="0 0 720 300" role="img" aria-label="Line chart comparing year-over-year average hourly wage growth with CPI inflation from June to August 2026. Wage growth falls from 3.3 percent to 2.8 percent to 2.0 percent while inflation moves from 2.8 to 3.0 percent, crossing in July.">
+    <svg viewBox="0 0 720 300" role="img" aria-label="Line chart comparing year-over-year average hourly wage growth with CPI inflation from June to August 2026. Wage growth falls from 3.3 to 2.8 to 2.0 percent while inflation rises from 2.8 to 3.0 percent and holds there, the lines crossing in July.">
       <g id="wageChart"></g>
     </svg>
-    <figcaption>Average hourly wage growth against CPI inflation, year over year. The lines crossed in July. Excluding distorted 2021 comparisons, August wage growth was the slowest since November 2017.</figcaption>
+    <figcaption>Average hourly wage growth against CPI inflation, year over year. The lines crossed in July and the gap widened to a full point in August, now confirmed by today's CPI release.</figcaption>
   </figure>
 
   <div class="panel spine-r">
     <h4>The number nobody led with</h4>
-    <p style="margin:0">Every headline covered the 42,000 job losses. The more consequential figure was wages: 2.0% growth against 3.0% inflation means Canadian workers are now getting poorer in real terms, with unemployment at a two-year low. That combination — tight-looking labour market, collapsing wage power — is what an economy looks like when workers have options but no leverage. It also tells you the Bank of Canada's inflation problem is coming from oil and tariffs, not from pay.</p>
+    <p style="margin:0">Every headline covered the 42,000 job losses. The more consequential figure was wages: 2.0% growth against inflation confirmed today at 3.0%. Canadian workers are getting poorer in real terms with unemployment at a two-year low. That combination — tight-looking labour market, collapsing wage power — describes an economy where workers have options but no leverage. It also tells you the Bank's inflation problem comes from oil and tariffs, not pay, which is precisely why it can keep rates on hold while inflation sits at the ceiling of its band.</p>
   </div>
 
   <h3>Beneath the monthly noise</h3>
@@ -784,11 +844,12 @@
   </div>
   <p class="src" style="margin-top:0">Composite standing on current growth, tariff exposure, project pipeline and housing conditions. An analytical ranking, not an index with a published methodology.</p>
 
-  <ul class="clean"><li><strong>Alberta.</strong> Oil revenue surge, largely outside the current tariff list, West Coast pipeline proposal and Pathways advancing.</li><li><strong>Saskatchewan.</strong> Potash, uranium, Foran copper, canola relief. Small population magnifies per-capita effects.</li><li><strong>Manitoba.</strong> +5,900 jobs in July; Port of Churchill upgrades and Arctic corridor investment ahead.</li><li><strong>British Columbia.</strong> LNG, Red Chris, ports and transmission on the build side; the country's worst affordability on the other.</li><li><strong>Territories.</strong> Tiny base, outsized strategic weight — Arctic security corridor, Churchill, Nunavut's first Inuit-owned hydro.</li><li><strong>Quebec.</strong> Shed 19,000 jobs in August; aluminum exposed. But cheap hydro is a real long-run asset and Contrecœur is proceeding.</li><li><strong>Ontario.</strong> Shed 18,000 in August after leading the country all spring. Carrying the auto, steel and parts losses.</li><li><strong>Atlantic Canada.</strong> Softest conditions in the country per CMHC, offset narrowly by ~20% of national defence industry employment.</li></ul>
+  <ul class="clean"><li><strong>Alberta.</strong> WTI above US$100, largely outside the tariff list, West Coast pipeline and Pathways advancing. Also votes on 19 October on whether to begin a legal path to a separation referendum.</li><li><strong>Saskatchewan.</strong> Potash, uranium, Foran copper, canola relief. Small population magnifies per-capita effects.</li><li><strong>Manitoba.</strong> +5,900 jobs in July; Port of Churchill upgrades and Arctic corridor investment ahead.</li><li><strong>British Columbia.</strong> LNG, Red Chris, ports and transmission on the build side; the country's worst affordability on the other.</li><li><strong>Territories.</strong> Tiny base, outsized strategic weight — Arctic security corridor, Churchill, Nunavut's first Inuit-owned hydro.</li><li><strong>Quebec.</strong> Shed 19,000 jobs in August; aluminum exposed. But cheap hydro is a real long-run asset and Contrecœur is proceeding.</li><li><strong>Ontario.</strong> Shed 18,000 in August after leading the country all spring. Carrying the auto, steel and parts losses.</li><li><strong>Atlantic Canada.</strong> Softest conditions in the country per CMHC, offset narrowly by ~20% of national defence industry employment.</li></ul>
 
-  <div class="panel spine-a">
+  <div class="panel spine-r">
     <h4>Why this is a political problem, not just an economic one</h4>
-    <p style="margin:0">Alberta and Saskatchewan are being enriched by an oil shock while Ontario and Quebec pay for a trade war neither started — and the federal response transfers money toward the losers using revenue generated by the winners. That arrangement has broken Canadian federalism before. The West Coast pipeline file, the Chinese EV quota that Ontario opposed, and equalisation are the three places to watch it surface.</p>
+    <p style="margin:0 0 10px">Alberta and Saskatchewan are being enriched by an oil shock while Ontario and Quebec pay for a trade war neither started — and the federal response transfers money toward the losers using revenue generated by the winners. That arrangement has strained Canadian federalism before.</p>
+    <p style="margin:0">It now has a date attached. On <strong>19 October</strong> Albertans vote on ten referendum questions, including whether the province should begin the legal process toward a binding separation vote. Polling has been consistent and one-sided — the August tracker put roughly two-thirds for remaining and under a third for starting the process — so the likely outcome is No. What matters economically is the margin, not the result: a strong Yes share, arriving amid a trade war and an oil boom, raises the political risk premium on every long-dated investment in the province, and the country's project pipeline is disproportionately Albertan.</p>
   </div>
   <p class="src">Sources: Statistics Canada Labour Force Survey, August 2026; CMHC Summer 2026 Housing Market Outlook; Prime Minister's Office and Stikeman Elliott on the Canada–BC Cooperative Prosperity Agreement; Major Projects Office announcements.</p>
 </section>
@@ -822,7 +883,7 @@
     <figcaption>Illustrative annual real GDP growth paths. The bands are wide on purpose — the honest uncertainty here is larger than any point forecast implies.</figcaption>
   </figure>
 
-  <h3>The six forces that decide which path Canada takes</h3>
+  <h3>The seven forces that decide which path Canada takes</h3>
   <details>
     <summary>1. Whether CUSMA survives its annual reviews</summary>
     <div class="body">
@@ -854,12 +915,19 @@
   <details>
     <summary>5. Where oil settles after the Middle East shock</summary>
     <div class="body">
-      <p>Middle East crude exports fell from about 18.3 million barrels a day to under 8.8 million. Analysts see roughly US$85 WTI for 2026, and a sustained US$10 increase adds an estimated 0.25–0.5% to GDP. But high oil also props up inflation, keeps the Bank on hold, and disguises weakness elsewhere — exactly as it did before 2014.</p>
+      <p>Middle East crude exports fell from about 18.3 million barrels a day to under 8.8 million, and WTI has now settled above US$100 — well past the US$85 most 2026 forecasts assumed. A sustained US$10 increase adds an estimated 0.25–0.5% to Canadian GDP. But high oil also props up inflation, keeps the Bank on hold, and disguises weakness everywhere else, exactly as it did before 2014. White House advisers have reportedly discussed the conflict running past January 2029.</p>
       <p><strong>Watch:</strong> Strait of Hormuz throughput, and whether producers convert the windfall into capacity or dividends.</p>
     </div>
   </details>
   <details>
-    <summary>6. Whether AI is a Canadian industry or a Canadian import</summary>
+    <summary>6. Whether the federation holds together economically</summary>
+    <div class="body">
+      <p>An asymmetric shock — resource provinces enriched, manufacturing provinces damaged, Ottawa redistributing between them — is the classic setup for a national-unity problem, and Alberta has put the question on a ballot for 19 October. Polling points firmly to No. But a large minority Yes would still reprice long-dated Alberta assets, and the country's project pipeline is disproportionately Albertan.</p>
+      <p><strong>Watch:</strong> the 19 October margin, the West Coast pipeline file, and whether equalisation reopens.</p>
+    </div>
+  </details>
+  <details>
+    <summary>7. Whether AI is a Canadian industry or a Canadian import</summary>
     <div class="body">
       <p>World-class research, 0.3 GW of capacity today, ~1.3 GW needed by 2030 for domestic workloads, and export potential of 1.7 to 6.7 GW. The advantages are clean power, cold climate and a stable legal regime. The constraint is grid interconnection — and a national history of inventing things well and scaling them poorly.</p>
       <p><strong>Watch:</strong> announced capacity reaching commercial operation, not MOU signature.</p>
@@ -929,7 +997,7 @@
 </section>
 
 <footer>
-  <p>Built 31 August 2026 and updated 7 September 2026, reflecting figures available on that date. Sources are Statistics Canada, the Bank of Canada, CMHC, IRCC, Finance Canada, the Parliamentary Budget Officer, Global Affairs Canada, the OECD, and published bank and consultancy research, each cited beneath the relevant section. Scenario projections in the ten-year outlook are analytical synthesis and are labelled as such.</p>
+  <p>Built 31 August 2026 and updated 14 September 2026, reflecting figures available on that date. Sources are Statistics Canada, the Bank of Canada, CMHC, IRCC, Finance Canada, the Parliamentary Budget Officer, Global Affairs Canada, the OECD, and published bank and consultancy research, each cited beneath the relevant section. Scenario projections in the ten-year outlook are analytical synthesis and are labelled as such.</p>
   <p>Nothing here is financial, investment, legal or tax advice.</p>
 </footer>
 
@@ -952,21 +1020,21 @@
     var g = document.getElementById("partnerBars");
     if(!g) return;
     var data = [
-      {n:"United States", v:68.0, c:"#215C8F"},
-      {n:"United Kingdom", v:9.2, c:"#5E82A3"},
-      {n:"China", v:5.0, c:"#8FA4B7"},
-      {n:"European Union", v:5.0, c:"#B6C4D0"},
-      {n:"All others", v:12.8, c:"#D8DFE5"}
+      {n:"United States", v:68.0, c:"#1F5A8C"},
+      {n:"United Kingdom", v:9.2, c:"#5A7FA3"},
+      {n:"China", v:5.0, c:"#8CA2B6"},
+      {n:"European Union", v:5.0, c:"#B3C2CE"},
+      {n:"All others", v:12.8, c:"#D9E0E6"}
     ];
     var x0 = 140, w = 520, rowH = 44, max = 70;
     data.forEach(function(d,i){
       var y = 14 + i*rowH;
-      g.appendChild(el("text",{x:x0-12,y:y+18,"text-anchor":"end","font-size":"13",fill:"#5B6872"}, d.n));
-      g.appendChild(el("rect",{x:x0,y:y,width:w,height:26,fill:"#F1F4F6"}));
+      g.appendChild(el("text",{x:x0-12,y:y+18,"text-anchor":"end","font-size":"13",fill:"#4E5C67"}, d.n));
+      g.appendChild(el("rect",{x:x0,y:y,width:w,height:26,fill:"#F4F7F9"}));
       g.appendChild(el("rect",{x:x0,y:y,width:(d.v/max)*w,height:26,fill:d.c}));
-      g.appendChild(el("text",{x:x0+(d.v/max)*w+9,y:y+18,"font-size":"13","font-weight":"650",fill:"#1B242C"}, d.v.toFixed(1)+"%"));
+      g.appendChild(el("text",{x:x0+(d.v/max)*w+9,y:y+18,"font-size":"13","font-weight":"650",fill:"#101A22"}, d.v.toFixed(1)+"%"));
     });
-    g.appendChild(el("line",{x1:x0,y1:14,x2:x0,y2:14+data.length*rowH-18,stroke:"#DCE2E7","stroke-width":"1"}));
+    g.appendChild(el("line",{x1:x0,y1:14,x2:x0,y2:14+data.length*rowH-18,stroke:"#D7DEE3","stroke-width":"1"}));
   })();
 
   /* ---------- chart 2: employment change by industry ---------- */
@@ -994,15 +1062,15 @@
       var x = zeroX + t*scale;
       g.appendChild(el("line",{
         x1:x, y1:top-10, x2:x, y2:plotBottom,
-        stroke: t===0 ? "#5B6872" : "#EAEEF1", "stroke-width":"1"
+        stroke: t===0 ? "#4E5C67" : "#ECF0F3", "stroke-width":"1"
       }));
       g.appendChild(el("text",{
         x:x, y:axisY+4, "text-anchor":"middle", "font-size":"11",
-        fill: t===0 ? "#5B6872" : "#8B97A1"
+        fill: t===0 ? "#4E5C67" : "#85919B"
       }, (t>0?"+":"")+t));
     });
-    g.appendChild(el("line",{x1:zeroX-20*scale, y1:plotBottom, x2:zeroX+22*scale, y2:plotBottom, stroke:"#DCE2E7","stroke-width":"1"}));
-    g.appendChild(el("text",{x:zeroX, y:axisY+26, "text-anchor":"middle","font-size":"11.5", fill:"#8B97A1"}, "change in employment, thousands"));
+    g.appendChild(el("line",{x1:zeroX-20*scale, y1:plotBottom, x2:zeroX+22*scale, y2:plotBottom, stroke:"#D7DEE3","stroke-width":"1"}));
+    g.appendChild(el("text",{x:zeroX, y:axisY+26, "text-anchor":"middle","font-size":"11.5", fill:"#85919B"}, "change in employment, thousands"));
 
     data.forEach(function(d,i){
       var y   = top + i*rowH;
@@ -1011,12 +1079,12 @@
 
       /* industry name lives in its own column, clear of every bar */
       g.appendChild(el("text",{
-        x:gutter, y:y+barH/2+5, "text-anchor":"end", "font-size":"12.5", fill:"#5B6872"
+        x:gutter, y:y+barH/2+5, "text-anchor":"end", "font-size":"12.5", fill:"#4E5C67"
       }, d.n));
 
       g.appendChild(el("rect",{
         x: pos ? zeroX : zeroX-len, y:y, width:len, height:barH,
-        fill: pos ? "#15704E" : "#B03A2E"
+        fill: pos ? "#11694A" : "#B0372C"
       }));
 
       /* value sits inside the bar, so it can never collide with anything */
@@ -1042,39 +1110,39 @@
     var baseY = 216, maxV = 700000, h = 176, x0 = 70, groupW = 150, barW = 52;
     [0,200000,400000,600000].forEach(function(t){
       var y = baseY - (t/maxV)*h;
-      g.appendChild(el("line",{x1:x0-14,y1:y,x2:660,y2:y,stroke:"#EAEEF1","stroke-width":"1"}));
-      g.appendChild(el("text",{x:x0-22,y:y+4,"text-anchor":"end","font-size":"11",fill:"#8B97A1"}, (t/1000)+"k"));
+      g.appendChild(el("line",{x1:x0-14,y1:y,x2:660,y2:y,stroke:"#ECF0F3","stroke-width":"1"}));
+      g.appendChild(el("text",{x:x0-22,y:y+4,"text-anchor":"end","font-size":"11",fill:"#85919B"}, (t/1000)+"k"));
     });
     years.forEach(function(d,i){
       var gx = x0 + i*groupW;
       var h1 = (d.tr/maxV)*h, h2 = (d.pr/maxV)*h;
-      g.appendChild(el("rect",{x:gx,y:baseY-h1,width:barW,height:h1,fill:"#B03A2E"}));
-      g.appendChild(el("rect",{x:gx+barW+8,y:baseY-h2,width:barW,height:h2,fill:"#215C8F"}));
-      g.appendChild(el("text",{x:gx+barW/2,y:baseY-h1-7,"text-anchor":"middle","font-size":"11","font-weight":"650",fill:"#B03A2E"}, Math.round(d.tr/1000)+"k"));
-      g.appendChild(el("text",{x:gx+barW+8+barW/2,y:baseY-h2-7,"text-anchor":"middle","font-size":"11","font-weight":"650",fill:"#215C8F"}, Math.round(d.pr/1000)+"k"));
-      g.appendChild(el("text",{x:gx+barW+4,y:baseY+20,"text-anchor":"middle","font-size":"13",fill:"#5B6872"}, d.y));
+      g.appendChild(el("rect",{x:gx,y:baseY-h1,width:barW,height:h1,fill:"#B0372C"}));
+      g.appendChild(el("rect",{x:gx+barW+8,y:baseY-h2,width:barW,height:h2,fill:"#1F5A8C"}));
+      g.appendChild(el("text",{x:gx+barW/2,y:baseY-h1-7,"text-anchor":"middle","font-size":"11","font-weight":"650",fill:"#B0372C"}, Math.round(d.tr/1000)+"k"));
+      g.appendChild(el("text",{x:gx+barW+8+barW/2,y:baseY-h2-7,"text-anchor":"middle","font-size":"11","font-weight":"650",fill:"#1F5A8C"}, Math.round(d.pr/1000)+"k"));
+      g.appendChild(el("text",{x:gx+barW+4,y:baseY+20,"text-anchor":"middle","font-size":"13",fill:"#4E5C67"}, d.y));
     });
-    g.appendChild(el("line",{x1:x0-14,y1:baseY,x2:660,y2:baseY,stroke:"#5B6872","stroke-width":"1"}));
-    g.appendChild(el("rect",{x:x0,y:246,width:11,height:11,fill:"#B03A2E"}));
-    g.appendChild(el("text",{x:x0+18,y:256,"font-size":"12",fill:"#5B6872"},"New temporary resident arrivals (target)"));
-    g.appendChild(el("rect",{x:x0+272,y:246,width:11,height:11,fill:"#215C8F"}));
-    g.appendChild(el("text",{x:x0+290,y:256,"font-size":"12",fill:"#5B6872"},"Permanent resident admissions"));
+    g.appendChild(el("line",{x1:x0-14,y1:baseY,x2:660,y2:baseY,stroke:"#4E5C67","stroke-width":"1"}));
+    g.appendChild(el("rect",{x:x0,y:246,width:11,height:11,fill:"#B0372C"}));
+    g.appendChild(el("text",{x:x0+18,y:256,"font-size":"12",fill:"#4E5C67"},"New temporary resident arrivals (target)"));
+    g.appendChild(el("rect",{x:x0+272,y:246,width:11,height:11,fill:"#1F5A8C"}));
+    g.appendChild(el("text",{x:x0+290,y:256,"font-size":"12",fill:"#4E5C67"},"Permanent resident admissions"));
   })();
 
   /* ---------- chart 4: productivity gap ---------- */
   (function(){
     var g = document.getElementById("prodBars");
     if(!g) return;
-    var data = [{n:"Canada", v:5, c:"#B03A2E"},{n:"United States", v:23, c:"#215C8F"}];
+    var data = [{n:"Canada", v:5, c:"#B0372C"},{n:"United States", v:23, c:"#1F5A8C"}];
     var x0 = 150, w = 470, max = 26;
     data.forEach(function(d,i){
       var y = 34 + i*78;
-      g.appendChild(el("text",{x:x0-14,y:y+30,"text-anchor":"end","font-size":"15","font-weight":"600",fill:"#1B242C"}, d.n));
-      g.appendChild(el("rect",{x:x0,y:y,width:w,height:46,fill:"#F1F4F6"}));
+      g.appendChild(el("text",{x:x0-14,y:y+30,"text-anchor":"end","font-size":"15","font-weight":"600",fill:"#101A22"}, d.n));
+      g.appendChild(el("rect",{x:x0,y:y,width:w,height:46,fill:"#F4F7F9"}));
       g.appendChild(el("rect",{x:x0,y:y,width:(d.v/max)*w,height:46,fill:d.c}));
       g.appendChild(el("text",{x:x0+(d.v/max)*w+12,y:y+30,"font-size":"20","font-weight":"600",fill:d.c}, "+"+d.v+"%"));
     });
-    g.appendChild(el("text",{x:x0,y:206,"font-size":"12",fill:"#8B97A1"},"Cumulative real GDP per capita growth, Q4 2014 to Q2 2026"));
+    g.appendChild(el("text",{x:x0,y:206,"font-size":"12",fill:"#85919B"},"Cumulative real GDP per capita growth, Q4 2014 to Q2 2026"));
   })();
 
   /* ---------- chart 5: scenario fan ---------- */
@@ -1092,14 +1160,14 @@
     function X(i){ return x0 + (i/(years.length-1))*(x1-x0); }
     function Y(v){ return yBot - ((v-vMin)/(vMax-vMin))*(yBot-yTop); }
     [-1,0,1,2,3].forEach(function(t){
-      g.appendChild(el("line",{x1:x0,y1:Y(t),x2:x1,y2:Y(t),stroke: t===0?"#5B6872":"#EAEEF1","stroke-width":"1"}));
-      g.appendChild(el("text",{x:x0-10,y:Y(t)+4,"text-anchor":"end","font-size":"11",fill:"#8B97A1"}, t+"%"));
+      g.appendChild(el("line",{x1:x0,y1:Y(t),x2:x1,y2:Y(t),stroke: t===0?"#4E5C67":"#ECF0F3","stroke-width":"1"}));
+      g.appendChild(el("text",{x:x0-10,y:Y(t)+4,"text-anchor":"end","font-size":"11",fill:"#85919B"}, t+"%"));
     });
     years.forEach(function(y,i){
       if(i%2===0 || i===years.length-1)
-        g.appendChild(el("text",{x:X(i),y:yBot+20,"text-anchor":"middle","font-size":"11",fill:"#8B97A1"}, y));
+        g.appendChild(el("text",{x:X(i),y:yBot+20,"text-anchor":"middle","font-size":"11",fill:"#85919B"}, y));
     });
-    var meta = {up:{c:"#15704E",l:"Build-out"}, base:{c:"#215C8F",l:"Managed divergence"}, down:{c:"#B03A2E",l:"Rupture"}};
+    var meta = {up:{c:"#11694A",l:"Build-out"}, base:{c:"#1F5A8C",l:"Managed divergence"}, down:{c:"#B0372C",l:"Rupture"}};
     ["up","base","down"].forEach(function(k){
       var d = series[k].map(function(v,i){ return (i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1); }).join(" ");
       var p = el("path",{d:d,fill:"none",stroke:meta[k].c,"stroke-width":"2.5","stroke-linejoin":"round",opacity: k==="base"?"1":"0.32"});
@@ -1110,7 +1178,7 @@
     var lx = x0;
     ["down","base","up"].forEach(function(k){
       g.appendChild(el("rect",{x:lx,y:262,width:11,height:11,fill:meta[k].c}));
-      g.appendChild(el("text",{x:lx+17,y:272,"font-size":"12",fill:"#5B6872"}, meta[k].l));
+      g.appendChild(el("text",{x:lx+17,y:272,"font-size":"12",fill:"#4E5C67"}, meta[k].l));
       lx += 168;
     });
   })();
@@ -1119,18 +1187,19 @@
   (function(){
     var g=document.getElementById("tariffTimeline"); if(!g) return;
     var y=104, x0=46, x1=684;
-    g.appendChild(el("line",{x1:x0,y1:y,x2:x1,y2:y,stroke:"#DCE2E7","stroke-width":"2"}));
+    g.appendChild(el("line",{x1:x0,y1:y,x2:x1,y2:y,stroke:"#D7DEE3","stroke-width":"2"}));
     var ev=[
-      {x:78,  d:"2025",        t1:"Sectoral tariffs: steel,", t2:"aluminum, autos", c:"#B03A2E", up:true},
-      {x:248, d:"1 Jul 2026",  t1:"US declines CUSMA renewal;", t2:"annual reviews to 2036", c:"#215C8F", up:false},
-      {x:432, d:"22 Aug 2026", t1:"Talks collapse. 50% under", t2:"Section 338 on US$20bn", c:"#B03A2E", up:true},
-      {x:548, d:"8 Sep 2026",  t1:"Canada counter-tariffs:", t2:"700 products, C$27.6bn", c:"#B03A2E", up:false},
-      {x:660, d:"1 Jul 2027",  t1:"First annual", t2:"CUSMA review", c:"#215C8F", up:true}
+      {x:80,  d:"1 Jul 2026",  t1:"US declines CUSMA renewal;", t2:"annual reviews to 2036", c:"#1F5A8C", up:true},
+      {x:236, d:"22 Aug",      t1:"Talks collapse. 50% under", t2:"Section 338 on US$20bn", c:"#B0372C", up:false},
+      {x:368, d:"8 Sep",       t1:"Canada retaliates on C$27.6bn.", t2:"US signs 5 more proclamations", c:"#B0372C", up:true},
+      {x:480, d:"29 Sep",      t1:"US import bans:", t2:"alcohol, dairy, motorcycles", c:"#B0372C", up:false},
+      {x:588, d:"1 Jan 2027",  t1:"Threatened: auto tariffs", t2:"double to 50%", c:"#B0372C", up:true},
+      {x:684, d:"1 Jul 2027",  t1:"First annual", t2:"CUSMA review", c:"#1F5A8C", up:false}
     ];
     /* today marker */
-    var tx=528;
-    g.appendChild(el("line",{x1:tx,y1:y-40,x2:tx,y2:y+40,stroke:"#8B97A1","stroke-width":"1","stroke-dasharray":"3 3"}));
-    g.appendChild(el("text",{x:tx-6,y:y-46,"text-anchor":"end","font-size":"11",fill:"#8B97A1"},"today"));
+    var tx=406;
+    g.appendChild(el("line",{x1:tx,y1:y-40,x2:tx,y2:y+40,stroke:"#85919B","stroke-width":"1","stroke-dasharray":"3 3"}));
+    g.appendChild(el("text",{x:tx-6,y:y-46,"text-anchor":"end","font-size":"11",fill:"#85919B"},"today"));
     ev.forEach(function(e){
       var ty = e.up ? y-22 : y+22;
       g.appendChild(el("line",{x1:e.x,y1:y,x2:e.x,y2:ty,stroke:e.c,"stroke-width":"1.5"}));
@@ -1138,43 +1207,43 @@
       var anchor = e.x>600 ? "end" : (e.x<110 ? "start" : "middle");
       var base = e.up ? ty-30 : ty+14;
       g.appendChild(el("text",{x:e.x,y:base,"text-anchor":anchor,"font-size":"12.5","font-weight":"650",fill:e.c}, e.d));
-      g.appendChild(el("text",{x:e.x,y:base+16,"text-anchor":anchor,"font-size":"11.5",fill:"#5B6872"}, e.t1));
-      g.appendChild(el("text",{x:e.x,y:base+30,"text-anchor":anchor,"font-size":"11.5",fill:"#5B6872"}, e.t2));
+      g.appendChild(el("text",{x:e.x,y:base+16,"text-anchor":anchor,"font-size":"11.5",fill:"#4E5C67"}, e.t1));
+      g.appendChild(el("text",{x:e.x,y:base+30,"text-anchor":anchor,"font-size":"11.5",fill:"#4E5C67"}, e.t2));
     });
   })();
 
   /* ---------- chart: wages vs inflation ---------- */
   (function(){
     var g=document.getElementById("wageChart"); if(!g) return;
-    var months=["June","July","August"], wage=[3.3,2.8,2.0], cpi=[2.8,3.0,null];
+    var months=["June","July","August"], wage=[3.3,2.8,2.0], cpi=[2.8,3.0,3.0];
     var x0=118, x1=612, yTop=44, yBot=226, vMax=3.6, vMin=1.6;
     function X(i){ return x0 + i*((x1-x0)/2); }
     function Y(v){ return yBot - ((v-vMin)/(vMax-vMin))*(yBot-yTop); }
     [2.0,2.5,3.0,3.5].forEach(function(t){
-      g.appendChild(el("line",{x1:x0-16,y1:Y(t),x2:x1+46,y2:Y(t),stroke:"#EAEEF1","stroke-width":"1"}));
-      g.appendChild(el("text",{x:x0-24,y:Y(t)+4,"text-anchor":"end","font-size":"11.5",fill:"#8B97A1"}, t.toFixed(1)+"%"));
+      g.appendChild(el("line",{x1:x0-16,y1:Y(t),x2:x1+46,y2:Y(t),stroke:"#ECF0F3","stroke-width":"1"}));
+      g.appendChild(el("text",{x:x0-24,y:Y(t)+4,"text-anchor":"end","font-size":"11.5",fill:"#85919B"}, t.toFixed(1)+"%"));
     });
     months.forEach(function(m,i){
-      g.appendChild(el("text",{x:X(i),y:yBot+24,"text-anchor":"middle","font-size":"12.5",fill:"#5B6872"}, m));
+      g.appendChild(el("text",{x:X(i),y:yBot+24,"text-anchor":"middle","font-size":"12.5",fill:"#4E5C67"}, m));
     });
     /* crossover marker */
     var cx = X(0) + 0.714*((x1-x0)/2);
-    g.appendChild(el("line",{x1:cx,y1:yTop-14,x2:cx,y2:yBot,stroke:"#B03A2E","stroke-width":"1","stroke-dasharray":"4 3"}));
-    g.appendChild(el("text",{x:cx+8,y:yTop-4,"font-size":"11.5","font-weight":"650",fill:"#B03A2E"},"wages drop below inflation"));
+    g.appendChild(el("line",{x1:cx,y1:yTop-14,x2:cx,y2:yBot,stroke:"#B0372C","stroke-width":"1","stroke-dasharray":"4 3"}));
+    g.appendChild(el("text",{x:cx+8,y:yTop-4,"font-size":"11.5","font-weight":"650",fill:"#B0372C"},"wages drop below inflation"));
     /* cpi line: two known points, then dashed to unknown */
-    g.appendChild(el("path",{d:"M"+X(0)+" "+Y(cpi[0])+" L"+X(1)+" "+Y(cpi[1]),fill:"none",stroke:"#215C8F","stroke-width":"2.5"}));
-    g.appendChild(el("path",{d:"M"+X(1)+" "+Y(cpi[1])+" L"+X(2)+" "+Y(cpi[1]),fill:"none",stroke:"#215C8F","stroke-width":"2","stroke-dasharray":"5 4",opacity:"0.45"}));
-    g.appendChild(el("text",{x:X(2)+10,y:Y(cpi[1])+4,"font-size":"11.5",fill:"#8B97A1"},"due 14 Sep"));
-    [0,1].forEach(function(i){ g.appendChild(el("circle",{cx:X(i),cy:Y(cpi[i]),r:"5",fill:"#215C8F"})); });
+    g.appendChild(el("path",{d:"M"+X(0)+" "+Y(cpi[0])+" L"+X(1)+" "+Y(cpi[1]),fill:"none",stroke:"#1F5A8C","stroke-width":"2.5"}));
+    g.appendChild(el("path",{d:"M"+X(1)+" "+Y(cpi[1])+" L"+X(2)+" "+Y(cpi[2]),fill:"none",stroke:"#1F5A8C","stroke-width":"2.5"}));
+    [0,1,2].forEach(function(i){ g.appendChild(el("circle",{cx:X(i),cy:Y(cpi[i]),r:"5",fill:"#1F5A8C"})); });
+    g.appendChild(el("text",{x:X(2)+12,y:Y(cpi[2])+4,"font-size":"12","font-weight":"650",fill:"#1F5A8C"},"3.0%"));
     /* wage line */
-    g.appendChild(el("path",{d:wage.map(function(v,i){return (i?"L":"M")+X(i)+" "+Y(v);}).join(" "),fill:"none",stroke:"#B03A2E","stroke-width":"2.5"}));
+    g.appendChild(el("path",{d:wage.map(function(v,i){return (i?"L":"M")+X(i)+" "+Y(v);}).join(" "),fill:"none",stroke:"#B0372C","stroke-width":"2.5"}));
     wage.forEach(function(v,i){
-      g.appendChild(el("circle",{cx:X(i),cy:Y(v),r:"5",fill:"#B03A2E"}));
-      g.appendChild(el("text",{x:X(i),y:Y(v)+22,"text-anchor":"middle","font-size":"12","font-weight":"650",fill:"#B03A2E"}, v.toFixed(1)+"%"));
+      g.appendChild(el("circle",{cx:X(i),cy:Y(v),r:"5",fill:"#B0372C"}));
+      g.appendChild(el("text",{x:X(i),y:Y(v)+22,"text-anchor":"middle","font-size":"12","font-weight":"650",fill:"#B0372C"}, v.toFixed(1)+"%"));
     });
-    g.appendChild(el("text",{x:X(0)-4,y:Y(cpi[0])-14,"font-size":"12.5","font-weight":"650",fill:"#215C8F"},"CPI inflation"));
-    g.appendChild(el("text",{x:X(0)-4,y:Y(wage[0])-14,"font-size":"12.5","font-weight":"650",fill:"#B03A2E"},"Wage growth"));
-    g.appendChild(el("text",{x:x0-24,y:yBot+52,"font-size":"11.5",fill:"#8B97A1"},"year-over-year change, 2026"));
+    g.appendChild(el("text",{x:X(0)-4,y:Y(cpi[0])-14,"font-size":"12.5","font-weight":"650",fill:"#1F5A8C"},"CPI inflation"));
+    g.appendChild(el("text",{x:X(0)-4,y:Y(wage[0])-14,"font-size":"12.5","font-weight":"650",fill:"#B0372C"},"Wage growth"));
+    g.appendChild(el("text",{x:x0-24,y:yBot+52,"font-size":"11.5",fill:"#85919B"},"year-over-year change, 2026"));
   })();
 
   /* ---------- chart: committed federal capital ---------- */
@@ -1192,20 +1261,20 @@
     var gutter=210, x0=222, w=452, max=135, top=22, rowH=36, barH=24;
     [0,25,50,75,100,125].forEach(function(t){
       var x=x0+(t/max)*w;
-      g.appendChild(el("line",{x1:x,y1:top-8,x2:x,y2:top+data.length*rowH-6,stroke:"#EAEEF1","stroke-width":"1"}));
-      g.appendChild(el("text",{x:x,y:top+data.length*rowH+12,"text-anchor":"middle","font-size":"11.5",fill:"#8B97A1"}, "$"+t+"bn"));
+      g.appendChild(el("line",{x1:x,y1:top-8,x2:x,y2:top+data.length*rowH-6,stroke:"#ECF0F3","stroke-width":"1"}));
+      g.appendChild(el("text",{x:x,y:top+data.length*rowH+12,"text-anchor":"middle","font-size":"11.5",fill:"#85919B"}, "$"+t+"bn"));
     });
     data.forEach(function(d,i){
       var y=top+i*rowH, len=(d.v/max)*w, inside=len>96;
-      g.appendChild(el("text",{x:gutter,y:y+barH/2+5,"text-anchor":"end","font-size":"12.5",fill:"#5B6872"}, d.n));
-      g.appendChild(el("rect",{x:x0,y:y,width:Math.max(len,2),height:barH,fill:"#215C8F"}));
+      g.appendChild(el("text",{x:gutter,y:y+barH/2+5,"text-anchor":"end","font-size":"12.5",fill:"#4E5C67"}, d.n));
+      g.appendChild(el("rect",{x:x0,y:y,width:Math.max(len,2),height:barH,fill:"#1F5A8C"}));
       g.appendChild(el("text",{
         x: inside ? x0+len-10 : x0+len+9, y:y+barH/2+5,
         "text-anchor": inside?"end":"start", "font-size":"12","font-weight":"650",
-        fill: inside?"#FFFFFF":"#215C8F"
+        fill: inside?"#FFFFFF":"#1F5A8C"
       }, "$"+d.v+"bn"));
     });
-    g.appendChild(el("line",{x1:x0,y1:top-8,x2:x0,y2:top+data.length*rowH-6,stroke:"#5B6872","stroke-width":"1"}));
+    g.appendChild(el("line",{x1:x0,y1:top-8,x2:x0,y2:top+data.length*rowH-6,stroke:"#4E5C67","stroke-width":"1"}));
   })();
 
   /* ---------- sector filter ---------- */
@@ -1317,19 +1386,23 @@
   /* ---------- calendar with live countdown ---------- */
   (function(){
     var items = [
-      {d:"2026-09-02", t:"Bank of Canada held at 2.25%", n:"A seventh consecutive hold, with a hawkish tilt. The Bank flagged upside inflation risk from tariffs and energy prices."},
+      {d:"2026-09-02", t:"Bank of Canada held at 2.25%", n:"A seventh consecutive hold with a hawkish tilt. Macklem named energy, not tariffs, as the bigger inflation risk."},
       {d:"2026-09-03", t:"July trade and Q2 productivity", n:"Trade surplus collapsed to $769m; non-US exports hit a record. Productivity rebounded 1.0% after two down quarters."},
       {d:"2026-09-04", t:"Labour Force Survey, August", n:"Employment fell 42,000, ending a four-month streak. Unemployment held at 6.4%; wage growth slowed to 2.0%."},
-      {d:"2026-09-08", t:"Canadian counter-tariffs take effect", n:"12:01 a.m. Tariffs of 15%, 25% and 50% on about 700 US products worth C$27.6bn. Details of the $1.5bn Regional Tariff Response Initiative expansion are due the same day."},
-      {d:"2026-09-14", t:"Consumer Price Index, August", n:"Whether gasoline pressure is fading, measured just before counter-tariffs start reaching shelf prices. Confirmed date."},
-      {d:"2026-09-17", t:"Population estimates, Q2 2026", n:"Expected mid-September. Statistics Canada revises the preliminary Q1 decline — it could shrink, deepen, or flip into growth."},
-      {d:"2026-09-30", t:"Monthly GDP, July", n:"Expected end of month. The July flash estimate was flat, so this is the first hard read on Q3 momentum."},
-      {d:"2026-10-09", t:"Labour Force Survey, September", n:"Expected. The month that shows whether August was a pause or a turn, and whether the manufacturing gain was front-running."},
-      {d:"2026-10-28", t:"Bank of Canada decision and Monetary Policy Report", n:"Confirmed. The first full forecast incorporating the August tariffs and the September countermeasures — the most important scheduled event left this year."},
-      {d:"2026-11-15", t:"2027–2029 Immigration Levels Plan", n:"Due in the fall. The signal on whether population contraction is a phase or a policy direction."},
+      {d:"2026-09-08", t:"Counter-tariffs in force; US escalates", n:"Canada's C$27.6bn countermeasures took effect. The same night Washington signed five further proclamations, adding outright import bans."},
+      {d:"2026-09-14", t:"Consumer Price Index, August", n:"Inflation held at 3.0%. Gasoline eased to 22.8%; grocery inflation fell below headline for the first time since July 2024."},
+      {d:"2026-09-15", t:"US 50% tariff list reshuffled", n:"Cement, rock salt and hospital pads out; ATVs, cheeses, motorboats, paper, wood, furniture and mattresses in."},
+      {d:"2026-09-17", t:"Population estimates, Q2 2026", n:"Expected mid-September. Revises the preliminary Q1 decline — it could shrink, deepen, or flip into growth."},
+      {d:"2026-09-29", t:"US import bans take effect", n:"Most Canadian alcohol, certain dairy and whey, molasses, motorcycles and mopeds barred from entry. CUSMA origin gives no exemption."},
+      {d:"2026-09-30", t:"Monthly GDP, July", n:"Expected end of month. The July flash was flat, so this is the first hard read on Q3 momentum."},
+      {d:"2026-10-09", t:"Labour Force Survey, September", n:"Expected. Shows whether August was a pause or a turn, and whether the manufacturing gain was front-running."},
+      {d:"2026-10-19", t:"Alberta referendum", n:"Ten questions, including whether to begin the legal process toward a binding separation vote. Polling points to No; the margin is what matters."},
+      {d:"2026-10-28", t:"Bank of Canada decision and MPR", n:"Confirmed. The first full forecast incorporating the tariffs, the bans and US$100 oil — the most important scheduled event left this year."},
+      {d:"2026-11-15", t:"2027–2029 Immigration Levels Plan", n:"Due in the fall. The signal on whether population contraction is a phase or a direction."},
       {d:"2026-11-30", t:"Federal budget or fall economic statement", n:"Watch for a credible defence funding path — its absence has been the standing criticism."},
       {d:"2026-12-03", t:"Labour productivity, Q3 2026", n:"Whether the Q2 rebound was a one-quarter artefact of strong output or the start of something."},
-      {d:"2027-07-01", t:"First annual CUSMA joint review", n:"The new recurring event. Repeats every year until extension is agreed or the agreement expires."},
+      {d:"2027-01-01", t:"Threatened US auto tariff increase", n:"25% to 50% on all cars, trucks and parts. Still described by the White House as on the table."},
+      {d:"2027-07-01", t:"First annual CUSMA joint review", n:"Repeats every year until extension is agreed or the agreement expires."},
       {d:"2036-07-01", t:"CUSMA expiry, if never extended", n:"The outer boundary of the current trade architecture."}
     ];
     var wrap = document.getElementById("calList");
@@ -1348,6 +1421,20 @@
         '<div class="c" style="color:'+(past?"var(--ink-3)":(days<14?"var(--rust)":"var(--ink-2)"))+'">'+cLabel+'</div>';
       wrap.appendChild(row);
     });
+  })();
+
+  /* ---------- scroll progress ---------- */
+  (function(){
+    var bar=document.querySelector("#progress span"); if(!bar) return;
+    var ticking=false;
+    function draw(){
+      var h=document.documentElement.scrollHeight-window.innerHeight;
+      bar.style.width=(h>0?Math.min(100,(window.scrollY/h)*100):0)+"%";
+      ticking=false;
+    }
+    window.addEventListener("scroll",function(){ if(!ticking){ ticking=true; requestAnimationFrame(draw); } },{passive:true});
+    window.addEventListener("resize",draw,{passive:true});
+    draw();
   })();
 
   /* ---------- scrollspy ---------- */

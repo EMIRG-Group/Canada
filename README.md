@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Canada Economic Dashboard — September 2026</title>
+<title>Canada Economic Dashboard — October 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -312,15 +312,15 @@
 <main>
 
 <header class="hero">
-  <div class="status"><i></i>Trade dispute escalating · import bans begin 29 September</div>
+  <div class="status"><i></i>US import bans in force · Alberta referendum in 8 days · no trade talks</div>
   <h1>Canada's economy, read from the outside in</h1>
-  <p class="standfirst">Last week the dispute stopped being about price. Canada's counter-tariffs landed on 8 September; within hours Washington signed orders banning Canadian alcohol, dairy and motorcycles outright from 29 September. Tariffs make goods expensive. Bans make them unsellable. That is a different kind of problem, and it arrived alongside oil above US$100.</p>
+  <p class="standfirst">Canada has now given back every job it created this year. Two months of losses totalling 110,000 have erased the spring rally, the dollar sits at an 18-month low, and US import bans took effect on 29 September with no talks scheduled. The paradox is that the trade data looks strong — because exporters spent August shipping everything they could before the wall went up.</p>
   <div class="asof">
-    <span><b>Data as of</b> 14 September 2026</span>
-    <span><b>Latest CPI</b> August, released today</span>
-    <span><b>Latest jobs</b> August, released 4 Sep</span>
-    <span><b>Latest trade</b> July, released 3 Sep</span>
-    <span><b>Latest GDP</b> Q2, released 28 Aug</span>
+    <span><b>Data as of</b> 11 October 2026</span>
+    <span><b>Latest jobs</b> September, released 9 Oct</span>
+    <span><b>Latest trade</b> August, released 6 Oct</span>
+    <span><b>Latest GDP</b> July, released 29 Sep</span>
+    <span><b>Latest CPI</b> August, released 14 Sep</span>
   </div>
 
   <div class="band">
@@ -348,7 +348,7 @@
     </div>
     <div class="expnote">
       Read it carefully. The UK's 9.2% is largely unwrought gold moving to London vaults for foreign investors, not British demand for Canadian goods. Strip that out and the honest picture is: roughly two-thirds United States, about 5% China, about 5% the EU, and a long tail. The EU and China together absorb about a tenth of what the US does, which is why "diversify away from America" is a decade-long project rather than a plan for this year.
-      <br><br><strong>Update, 3 September.</strong> July trade data moved this bar for the first time. Exports to destinations other than the United States rose 7.4% in the month to a record high, lifting the non-US share to 33.7%, while exports to the US fell 6.6% — the sharpest drop since April 2025. Much of that swing is falling gold and crude shipments rather than a structural shift, so one month proves nothing. It is still the best print the diversification argument has had.
+      <br><br><strong>Update, 6 October — and a lesson in reading one month.</strong> July looked like a breakthrough: non-US exports hit a record, lifting their share to 33.7% while US-bound shipments fell 6.6%. August reversed it completely. Exports to the United States jumped 8.1% and the bilateral surplus widened to $11.2bn, the largest single-month improvement ever recorded, while exports to everywhere else fell 8.5%. Nothing structural happened in either month. Exporters were racing freight across the border ahead of the 22 August tariffs, and the July dip was mostly gold and crude. Treat any single month's diversification number as noise until three of them point the same way.
     </div>
   </div>
 </header>
@@ -362,47 +362,47 @@
     <div class="vital good">
       <div class="lab">Real GDP, Q2 2026</div>
       <div class="val up">+3.3%</div>
-      <div class="met">Annualized. Fastest since Q1 2023. Q1 revised up to +0.3%, so no technical recession. June monthly +0.3%; July flash estimate flat.</div>
+      <div class="met">Annualized, the fastest since Q1 2023 — but momentum has gone. July came in flat after three months of expansion, with manufacturing and retail both contracting. The August advance estimate is +0.2%.</div>
     </div>
-    <div class="vital mid">
-      <div class="lab">Unemployment rate, August</div>
-      <div class="val watch">6.4%</div>
-      <div class="met">Unchanged, still the lowest since 2024 and 0.7pt below a year ago. But employment fell 42,000 against a forecast +15,000, ending a run of 181,000 gains from April to July.</div>
+    <div class="vital hot">
+      <div class="lab">Unemployment rate, September</div>
+      <div class="val down">6.5%</div>
+      <div class="met">Employment fell 68,300 against a forecast +9,200 — the steepest drop in seven months. With August's 41,700, two months have erased every net job Canada added in 2026.</div>
     </div>
     <div class="vital mid">
       <div class="lab">CPI inflation, August</div>
       <div class="val watch">3.0%</div>
-      <div class="met">Unchanged, pinned at the ceiling of the Bank's 1–3% band. Gasoline inflation eased to 22.8% from 25.7%; excluding it, prices rose 2.4%. Grocery inflation fell below headline for the first time since July 2024.</div>
+      <div class="met">Pinned at the ceiling of the Bank's 1–3% band. Gasoline eased to 22.8%; excluding it prices rose 2.4%, and grocery inflation fell below headline for the first time since July 2024. September reading lands 19 October.</div>
     </div>
     <div class="vital">
       <div class="lab">Bank of Canada policy rate</div>
       <div class="val neu">2.25%</div>
-      <div class="met">A seventh straight hold on 2 September, with a hawkish tilt. Macklem called the tariffs steep but narrowly based, and named energy the bigger inflation risk. Capital Economics is pulling forward its first-hike call. Next decision 28 October.</div>
+      <div class="met">Unchanged for nearly a year. After September's jobs report traders cut October hike odds to about 25% from 40% and moved the expected move to December. The Bank is 1.5 points below the Fed, which is what the dollar has been falling on.</div>
     </div>
     <div class="vital hot">
-      <div class="lab">US measures on Canadian goods</div>
-      <div class="val down">50%</div>
-      <div class="met">Tariffs since 22 August on ~5.5% of US-bound exports. On 8 September Trump signed five more proclamations: import bans on most Canadian alcohol, some dairy and motorcycles from 29 September, and a standing threat to double auto tariffs to 50% on 1 January.</div>
+      <div class="lab">US import bans, in force</div>
+      <div class="val down">~$1B</div>
+      <div class="met">Since 29 September most Canadian alcohol, certain dairy and whey, molasses and large motorcycles are barred outright — about US$967m of goods on 2025 volumes. Small in value; the precedent is the point. Auto tariffs are threatened to double to 50% on 1 January.</div>
     </div>
     <div class="vital">
       <div class="lab">Canadian dollar</div>
-      <div class="val neu">71.9¢</div>
-      <div class="met">Around C$1.39 per USD, holding a 1.37–1.41 range. High oil and a hawkish Bank support it; tariffs and the US rate advantage cap it. Consensus sees ~C$1.37 by year-end.</div>
+      <div class="val down">70.0¢</div>
+      <div class="met">C$1.4287 on 9 October, an 18-month low, after the jobs report cut rate-hike bets and the two-year yield fell 9.5bp. The 1.5-point gap to the Fed is doing most of the work.</div>
     </div>
     <div class="vital mid">
-      <div class="lab">WTI crude</div>
-      <div class="val watch">US$102</div>
-      <div class="met">Settled at $102.48 on 10 September, the highest since May, with Brent at $107.63. Oil is up over 18% this month as attacks on shipping intensify. Goldman flags risk above $120.</div>
-    </div>
-    <div class="vital mid">
-      <div class="lab">Merchandise trade balance, July</div>
-      <div class="val watch">+$769M</div>
-      <div class="met">Fifth straight surplus, but far below June's revised $4.2bn and a forecast $3.6bn. Exports fell 2.3% on gold and crude; the US surplus narrowed to $5.9bn from $10.3bn.</div>
+      <div class="lab">Crude oil</div>
+      <div class="val watch">US$104</div>
+      <div class="met">Brent closed at $104.43 on 9 October, 66% above a year ago, with WTI near $93. Eleven tankers were attacked transiting Hormuz in the week to 4 October; Trump says he will not strike Iran again before the US midterms.</div>
     </div>
     <div class="vital good">
-      <div class="lab">Non-US share of exports, July</div>
-      <div class="val up">33.7%</div>
-      <div class="met">Exports to destinations other than the United States reached a record high, up 7.4% in the month and rising for a third month running.</div>
+      <div class="lab">Merchandise trade balance, August</div>
+      <div class="val up">+$4.2B</div>
+      <div class="met">Sixth straight surplus and the largest since May 2022, against a forecast $1.55bn. Exports rose 2.5%; imports fell 2.0%, their first decline in seven months.</div>
+    </div>
+    <div class="vital mid">
+      <div class="lab">Exports to the US, August</div>
+      <div class="val watch">+8.1%</div>
+      <div class="met">The bilateral surplus jumped to $11.2bn from $6.1bn — the largest single-month improvement ever recorded. This is front-running ahead of the tariffs, not demand, and exports to everywhere else fell 8.5%.</div>
     </div>
     <div class="vital mid">
       <div class="lab">Federal deficit, 2026–27</div>
@@ -410,9 +410,9 @@
       <div class="met">After $66.9bn in 2025–26 (2.1% of GDP). Debt-to-GDP projected at 41.5% and broadly flat to 2030–31.</div>
     </div>
     <div class="vital mid">
-      <div class="lab">Population, Q1 2026</div>
-      <div class="val watch">41.47M</div>
-      <div class="met">Fell by 55,025 in the quarter — a third consecutive quarterly decline. This is deliberate policy, and it changes everything downstream.</div>
+      <div class="lab">Population, 1 July 2026</div>
+      <div class="val neu">41.80M</div>
+      <div class="met">The 23 September annual revision rewrote this: Q2 showed growth of 80,343 (+0.2%), not decline — the weakest second quarter since 2020, but growth. Non-permanent residents still fell 18,875.</div>
     </div>
     <div class="vital">
       <div class="lab">Job vacancy rate, Q1 2026</div>
@@ -427,12 +427,12 @@
     <div class="vital good">
       <div class="lab">Real GDP per capita, Q2</div>
       <div class="val up">+3.8%</div>
-      <div class="met">Annualized, fastest since late 2021. But note the mechanism: output rose while the denominator shrank.</div>
+      <div class="met">Annualized, the fastest since late 2021 — +1.0% on the quarter. Read it with care: it was calculated against a population path the September revision has since rewritten upward.</div>
     </div>
   </div>
   <div class="panel spine-a">
     <h4>Three cautions about the numbers above</h4>
-    <p style="margin:0 0 10px"><strong>Population figures are preliminary.</strong> Statistics Canada has flagged that the Q1 decline could be revised smaller, larger, or into growth when September data lands. Everything per-capita inherits that uncertainty.</p>
+    <p style="margin:0 0 10px"><strong>Preliminary data gets revised, sometimes decisively.</strong> This dashboard spent two months reporting three consecutive quarters of population decline, flagging that the September revision could flip it into growth. On 23 September it did: Q2 came in at +80,343. Treat every preliminary series here the same way, and treat the per-capita figures built on the old population path with particular caution.</p>
     <p style="margin:0 0 10px"><strong>Forecasts disagree meaningfully.</strong> The Bank of Canada projected 0.7% growth for 2026 in July; Finance Canada used 1.1%; Q2 came in at 3.3% annualized. That is not one of them being wrong — it is genuine uncertainty about a small open economy in a tariff war, and any dashboard showing a single confident number is hiding it from you. The Bank publishes revised projections on 28 October.</p>
     <p style="margin:0"><strong>Gold distorts the trade data.</strong> Large unwrought gold movements to London inflate both total exports and the UK's apparent share — and July showed the same effect in reverse, with metal and mineral exports down 8.5% mainly because foreign investors bought less Canadian-held gold. Always check whether a big export month reflects industrial demand or vault logistics.</p>
   </div>
@@ -445,18 +445,18 @@
   <p class="deck">Two things this summer will outlast any budget line: the US declined to renew CUSMA, and talks collapsed into a 50% tariff. Trade policy has stopped being a background condition and become a recurring annual risk.</p>
 
   <figure>
-    <svg viewBox="0 0 720 196" role="img" aria-label="Timeline of trade escalation: July 2026 US declines CUSMA renewal; 22 August 50 percent Section 338 tariffs; 8 September Canada retaliates and the US signs five further proclamations; 29 September US import bans on alcohol, dairy and motorcycles; 1 January 2027 threatened doubling of auto tariffs; 1 July 2027 first annual CUSMA review.">
+    <svg viewBox="0 0 720 196" role="img" aria-label="Timeline of trade escalation: July 2026 US declines CUSMA renewal; 22 August 50 percent Section 338 tariffs; 8 September Canada retaliates and the US signs five further proclamations; 29 September US import bans take effect; 3 November US midterm elections; 1 January 2027 threatened doubling of auto tariffs.">
       <g id="tariffTimeline"></g>
     </svg>
-    <figcaption>The escalation ladder. Blue markers are structural — they change the rules. Red markers changed the price, until 29 September, when they start changing access instead.</figcaption>
+    <figcaption>The escalation ladder. Blue markers are structural — they change the rules or the politics. Red markers changed the price, until 29 September, when they started changing access instead. Everything to the right of the dashed line is still ahead.</figcaption>
   </figure>
 
   <div class="panel spine-r">
     <h4>Live position, 7 September</h4>
     <p style="margin:0 0 9px"><strong>United States.</strong> 50% under Section 338 since 22 August on about US$20bn of goods — 5.5% of US-bound exports. Wine, furniture, dairy, cement, clothing, hockey equipment. First expressed use of that statute, framed as an offset to Canadian treatment of alcohol, dairy and vehicles. BMO puts the drag at roughly 0.5pp of GDP growth.</p>
     <p style="margin:0 0 9px"><strong>Canada.</strong> Counter-tariffs took effect 12:01 a.m. on 8 September — 15%, 25% and 50% across roughly 700 products worth C$27.6bn, bringing total affected tariff lines past 800. US steel and aluminum moved from a 25% to a 50% counter-rate. Paired with $7.5bn in worker and business support.</p>
-    <p style="margin:0 0 9px"><strong>Washington's answer, the same night.</strong> Five further Section 338 proclamations. From <strong>29 September</strong>, most Canadian alcoholic beverages, certain dairy and whey products, molasses, motorcycles and mopeds are <em>banned from import</em> outright — CUSMA origin does not exempt them. From 15 September the 50% tariff list is reshuffled: cement, rock salt and hospital pads out; ATVs, more cheeses, motorboats, paper, wood, furniture, lighting and mattresses in. US agencies were also ordered to strip Canadian-origin goods from government contracts.</p>
-    <p style="margin:0"><strong>Talks.</strong> No formal negotiations. Greer and LeBlanc have spoken and are expected to speak again — the only thread still attached. The threat to double auto tariffs to 50% on 1 January remains live.</p>
+    <p style="margin:0 0 9px"><strong>Washington's answer.</strong> Five further Section 338 proclamations signed 8 September. Since <strong>29 September</strong> most Canadian alcoholic beverages, certain dairy and whey products, molasses, motorcycles and mopeds are <em>banned from import</em> outright — CUSMA origin does not exempt them. The American Action Forum puts the covered volume at about US$967 million on 2025 data, roughly a quarter of one percent of what Canada ships south. US agencies were also ordered to strip Canadian-origin goods from government contracts.</p>
+    <p style="margin:0"><strong>Talks.</strong> Frozen. USTR Jamieson Greer: there are no trade negotiations happening at present. The threat to double auto tariffs to 50% on 1 January remains live, and the US midterm elections on 3 November now sit between here and that deadline.</p>
   </div>
 
   <div class="panel spine-r">
@@ -480,8 +480,8 @@
       <tbody>
         <tr><td>US Section 338 tariffs</td><td class="n">50%</td><td>~US$20bn (5.5% of US-bound)</td><td><span class="tag t-con">In force 22 Aug</span></td></tr>
         <tr><td>Canadian counter-tariffs</td><td class="n">15 / 25 / 50%</td><td>~700 products, C$27.6bn; 800+ lines total</td><td><span class="tag t-con">In force 8 Sep</span></td></tr>
-        <tr><td><strong>US import bans</strong></td><td class="n">Prohibition</td><td>Most alcohol, some dairy and whey, molasses, motorcycles</td><td><span class="tag t-con">From 29 Sep</span></td></tr>
-        <tr><td>US 50% list reshuffle</td><td class="n">50%</td><td>Adds ATVs, cheeses, motorboats, paper, wood, furniture, mattresses</td><td><span class="tag t-con">From 15 Sep</span></td></tr>
+        <tr><td><strong>US import bans</strong></td><td class="n">Prohibition</td><td>~US$967m: most alcohol, some dairy and whey, molasses, motorcycles</td><td><span class="tag t-con">In force 29 Sep</span></td></tr>
+        <tr><td>US 50% list reshuffle</td><td class="n">50%</td><td>Added ATVs, cheeses, motorboats, paper, wood, furniture, mattresses</td><td><span class="tag t-con">In force 15 Sep</span></td></tr>
         <tr><td>US auto tariff increase</td><td class="n">25% → 50%</td><td>All cars, trucks and parts</td><td><span class="tag t-mix">Threatened, 1 Jan 2027</span></td></tr>
         <tr><td>US steel and aluminum</td><td class="n">50%</td><td>Sectoral, all origins</td><td><span class="tag t-con">In force since 2025</span></td></tr>
         <tr><td>US autos and parts</td><td class="n">Sectoral</td><td>Assembly and components</td><td><span class="tag t-con">In force</span></td></tr>
@@ -583,7 +583,7 @@
       <thead><tr><th>Sector</th><th>Direction</th><th>The evidence</th><th>Ten-year call</th></tr></thead>
       <tbody>
         <tr data-cat="exp"><td><strong>Oil and gas</strong></td><td><span class="tag t-exp">Expanding</span></td>
-          <td>Revenue estimated at $210bn for 2026 against $167bn last year. WTI settled at $102 on 10 September and Brent at $108 — up over 18% this month — well above the US$85 that 2026 forecasts assumed. Crude export values had been falling for three months before this leg.</td>
+          <td>Revenue estimated at $210bn for 2026 against $167bn last year. Brent closed at $104 on 9 October, 66% above a year ago, against the US$85 most 2026 forecasts assumed. Energy exports rose 4.7% in August, their first rise since April, on crude, diesel and nuclear fuel.</td>
           <td>Strong, with a tell: capex is flat despite the windfall. Producers are returning cash rather than drilling — the single most revealing fact about Canadian investment culture.</td></tr>
         <tr data-cat="exp"><td><strong>Critical minerals</strong></td><td><span class="tag t-exp">Expanding</span></td>
           <td>Red Chris alone would lift Canadian copper output over 15%. Foran McIlvenna Bay, Sisson tungsten, plus nickel and graphite files in the Major Projects Office queue.</td>
@@ -601,7 +601,7 @@
           <td>23 Major Projects Office initiatives worth over $135bn and 150,000 projected jobs, against ~$125bn of federal capital commitments.</td>
           <td>Non-residential booming, residential slumping. Never read the aggregate — the composition is the whole story.</td></tr>
         <tr data-cat="exp"><td><strong>Healthcare</strong></td><td><span class="tag t-exp">Expanding</span></td>
-          <td>Roughly 85,000 jobs added over the past year on demographic demand. A projected 117,600-nurse shortfall by 2030; over 23,000 unfilled family physician posts.</td>
+          <td>Roughly 85,000 jobs added over the past year on demographic demand &mdash; but health care and social assistance was among September's biggest decliners as public sector employment fell 70,000. A 117,600-nurse shortfall is projected by 2030, alongside budgets that have stopped funding hires.</td>
           <td>Demand is locked in for the decade. The wrinkle: health vacancies fell to 62,700 in Q1, the lowest since early 2020 — budgets, not need, now cap hiring.</td></tr>
         <tr data-cat="mix"><td><strong>Finance and real estate</strong></td><td><span class="tag t-mix">Mixed</span></td>
           <td>+18,000 jobs in July, the strongest percentage gain that month, against weak transaction volumes underneath.</td>
@@ -616,7 +616,7 @@
           <td>+21,000 in July; household spending rose 0.8% in Q2.</td>
           <td>Follows real income, which is now falling — wages at 2.0% against 3.0% inflation. Counter-tariffs on US appliances, electronics and food reach shelves this autumn.</td></tr>
         <tr data-cat="con"><td><strong>Manufacturing, general</strong></td><td><span class="tag t-con">Contracting</span></td>
-          <td>Down roughly 50,000 year over year, with over 60% of the sector substantially US-exposed. August was an odd exception at +22,000 — the month's only significant gain, most plausibly tariff front-running.</td>
+          <td>Down roughly 50,000 year over year, with over 60% of the sector substantially US-exposed. August's odd +22,000 was front-running: September gave back 12,700. Monthly manufacturing GDP also contracted in July.</td>
           <td>The core structural loss of this decade. Some returns if tariffs ease; a meaningful share does not, because relocated supply chains rarely relocate twice.</td></tr>
         <tr data-cat="con"><td><strong>Autos and parts</strong></td><td><span class="tag t-con">Contracting</span></td>
           <td>Parts employment fell 8.7% year over year by February, about 6,200 jobs. GM Oshawa dropped a shift (~500 jobs); Stellantis Brampton has built nothing for nearly two years with 2,200 on layoff. Washington's threat to double auto tariffs to 50% on 1 January is still live.</td>
@@ -634,10 +634,10 @@
           <td>Starts forecast to fall 6.8% to 241,400 in 2026, with more declines through 2028. Condo presales have collapsed and Toronto inventory is heavy.</td>
           <td>Multi-year contraction. Fewer arrivals means less household formation; what does get built shifts toward purpose-built rental.</td></tr>
         <tr data-cat="con"><td><strong>International education</strong></td><td><span class="tag t-con">Contracting</span></td>
-          <td>New study permits cut roughly in half. Total new temporary resident arrivals fall from 673,650 in 2025 to 385,000 in 2026.</td>
+          <td>New study permits cut roughly in half; new temporary resident arrivals fall from 673,650 in 2025 to 385,000 in 2026. The second-order effect now shows in national data &mdash; Statistics Canada named fewer international students as a driver of September's drop in education employment.</td>
           <td>Shrunk on purpose. The second-order damage lands on college towns, student housing, and employers who staffed on student labour.</td></tr>
         <tr data-cat="con"><td><strong>Public administration</strong></td><td><span class="tag t-con">Contracting</span></td>
-          <td>Down 8,800 in August after 15,000 in July — two consecutive monthly declines as the spending review works through.</td>
+          <td>Public sector employment fell 70,000 (−1.5%) in September, after declines in July and August. Three straight months as the spending review works through, and now the single largest drag on national employment.</td>
           <td>Restraint is intentional and continues. Resources shift from administration toward procurement and capital.</td></tr>
       </tbody>
     </table>
@@ -648,45 +648,51 @@
 <!-- ============ LABOUR ============ -->
 <section id="labour">
   <h2 class="sec">Labour market</h2>
-  <p class="deck">August broke a four-month streak: 42,000 jobs gone, unemployment steady at 6.4%, and manufacturing the only industry to add anyone.</p>
+  <p class="deck">Two consecutive months of losses totalling 110,000 jobs have wiped out every net gain Canada made in 2026. September was the sharpest drop in seven months — and it came from the public side of the economy, not the tariff-exposed side.</p>
 
   <div class="kpi-inline">
-    <div><div class="k">Jobs, August</div><div class="v down">−42,000</div></div>
-    <div><div class="k">Jobs, April–July</div><div class="v up">+181,000</div></div>
-    <div><div class="k">Wage growth, y/y</div><div class="v down">2.0%</div></div>
-    <div><div class="k">Youth unemployment</div><div class="v watch">12.9%</div></div>
-    <div><div class="k">Vacancy rate</div><div class="v neu">2.8%</div></div>
+    <div><div class="k">Jobs, September</div><div class="v down">−68,300</div></div>
+    <div><div class="k">Two-month loss</div><div class="v down">−110,000</div></div>
+    <div><div class="k">Public sector, September</div><div class="v down">−70,000</div></div>
+    <div><div class="k">Wage growth, y/y</div><div class="v watch">2.3%</div></div>
+    <div><div class="k">Participation rate</div><div class="v down">64.8%</div></div>
   </div>
 
   <figure>
-    <svg viewBox="0 0 720 310" role="img" aria-label="Diverging bar chart of significant employment changes by industry in August 2026, in thousands of jobs. Manufacturing plus 22.0. Losses: utilities minus 5.6; natural resources minus 7.7; public administration minus 8.8; business, building and other support services minus 20.0.">
+    <svg viewBox="0 0 720 300" role="img" aria-label="Bar chart of monthly employment change in thousands of jobs: April to June combined plus 105.9, July plus 75.1, August minus 41.7, September minus 68.3.">
       <g id="jobsBars"></g>
     </svg>
-    <figcaption>Statistically significant employment changes by industry, August 2026, thousands of jobs. Manufacturing posted the only significant gain — the reverse of the pattern of the last eighteen months.</figcaption>
+    <figcaption>Monthly change in employment, thousands of jobs, seasonally adjusted. April through July added 181,000; August and September gave back 110,000. Forecasters expected a 9,200 gain in September and got close to the opposite.</figcaption>
   </figure>
 
-  <div class="panel spine-a">
-    <h4>The manufacturing gain is probably a mirage</h4>
-    <p style="margin:0">Manufacturing added 22,000 jobs in the sector this dashboard calls the decade's core structural loss. It is still down about 50,000 year over year, and the likeliest explanation is firms pulling production forward ahead of the 22 August tariffs and the 8 September counter-tariffs. TD read the July trade data the same way. If that's right, front-running borrows from the months after — so September and October should be weak, and those are the prints that settle it.</p>
+  <div class="panel spine-g">
+    <h4>Last month's call, settled</h4>
+    <p style="margin:0">In September this dashboard argued that August's surprise 22,000-job manufacturing gain was front-running ahead of the tariffs rather than a turnaround, and that September would be the test. It gave it back: manufacturing shed 12,700 jobs. Trade told the same story — August exports to the US jumped 8.1%, and TD cautioned that the strength borrows from future activity. Both series are now distorted by timing, so the clean read does not arrive until the October and November prints.</p>
   </div>
 
   <figure>
-    <svg viewBox="0 0 720 300" role="img" aria-label="Line chart comparing year-over-year average hourly wage growth with CPI inflation from June to August 2026. Wage growth falls from 3.3 to 2.8 to 2.0 percent while inflation rises from 2.8 to 3.0 percent and holds there, the lines crossing in July.">
+    <svg viewBox="0 0 720 300" role="img" aria-label="Line chart comparing year-over-year wage growth for permanent employees with CPI inflation from June to September 2026. Wage growth falls from 3.3 to 2.8 to 2.0 percent then edges up to 2.3 percent, while inflation rises from 2.8 to 3.0 percent and holds. The lines cross in July and wages stay below inflation.">
       <g id="wageChart"></g>
     </svg>
-    <figcaption>Average hourly wage growth against CPI inflation, year over year. The lines crossed in July and the gap widened to a full point in August, now confirmed by today's CPI release.</figcaption>
+    <figcaption>Wage growth for permanent employees against CPI inflation, year over year. The lines crossed in July and have not recrossed. September CPI lands 19 October.</figcaption>
   </figure>
 
   <div class="panel spine-r">
-    <h4>The number nobody led with</h4>
-    <p style="margin:0">Every headline covered the 42,000 job losses. The more consequential figure was wages: 2.0% growth against inflation confirmed today at 3.0%. Canadian workers are getting poorer in real terms with unemployment at a two-year low. That combination — tight-looking labour market, collapsing wage power — describes an economy where workers have options but no leverage. It also tells you the Bank's inflation problem comes from oil and tariffs, not pay, which is precisely why it can keep rates on hold while inflation sits at the ceiling of its band.</p>
+    <h4>This was a public-sector contraction, not a tariff one</h4>
+    <p style="margin:0 0 10px">The striking detail in September is where the losses landed. Public sector employment fell 70,000 (−1.5%) while private sector numbers were little changed. The declines came in educational services, health care and social assistance — and Statistics Canada noted that fewer international students helped drag education employment down, which is immigration policy arriving in the labour data exactly as this dashboard's sector map anticipated.</p>
+    <p style="margin:0">KPMG's Daniel Hyun put it plainly: most September losses came from non-trade-facing sectors, so it would be premature to blame tariffs. That matters for policy. If the weakness is fiscal restraint plus a deliberate collapse in student arrivals, cheaper money will not fix it — and the tariff damage is still mostly ahead.</p>
+  </div>
+
+  <div class="panel spine-a">
+    <h4>Pay has trailed prices for three months</h4>
+    <p style="margin:0">Wage growth for permanent employees firmed slightly to 2.3% in September, against inflation of 3.0%. Canadians are still getting poorer in real terms with the jobless rate at only 6.5% — an economy where workers have options but no leverage. It also tells you the Bank's inflation problem comes from oil and tariffs rather than pay, which is why it can hold rates while inflation sits at the ceiling of its band, and why 28 October is a genuinely hard call.</p>
   </div>
 
   <h3>Beneath the monthly noise</h3>
   <ul class="clean">
-    <li><strong>A pause, not a break.</strong> The labour force shrank alongside employment, so the rate held. The layoff rate was 0.8%, below the 0.9% pre-pandemic average — hiring stopped, firing didn't start.</li>
-    <li><strong>Vacancies are scarce.</strong> At 2.8% the rate sits nearly a full point below its long-run norm near 3.5%, and vacancies for degree-requiring roles fell 6.9% year over year. Job seekers face more competition than 6.4% implies.</li>
-    <li><strong>Losses cluster where the tariffs point.</strong> Quebec shed 19,000 and Ontario 18,000. Youth employment fell 19,000, pushing youth unemployment back to 12.9% after a 1.7-point spring improvement.</li>
+    <li><strong>The labour force is shrinking too.</strong> Participation fell to 64.8% and the employment rate to 60.6%. Roughly 53,000 people left the labour force, which is the only reason the jobless rate rose just 0.1 point against a 68,300 drop in jobs.</li>
+    <li><strong>Vacancies are scarce.</strong> At 2.8% the rate sits nearly a full point below its long-run norm near 3.5%, and vacancies for degree-requiring roles fell 6.9% year over year. Job seekers face more competition than 6.5% implies.</li>
+    <li><strong>Markets repriced within the hour.</strong> The two-year yield fell 9.5bp to 2.41% and the dollar hit an 18-month low. October hike odds dropped from roughly 40% to 25%, with the expected move pushed out to December.</li>
     <li><strong>The mismatch is structural.</strong> Displaced manufacturing workers in Windsor aren't the people who fill nursing vacancies or electrician shortages in Alberta. Retraining takes years and credential recognition is slow. This is why unemployment and shortage coexist.</li>
   </ul>
 
@@ -695,7 +701,7 @@
     <table>
       <thead><tr><th>Occupation cluster</th><th>Signal</th><th>Why it holds for ten years</th></tr></thead>
       <tbody>
-        <tr><td>Nurses, PSWs, allied health</td><td><span class="tag t-exp">Acute</span></td><td>A projected 117,600-nurse shortfall by 2030. Demographics guarantee demand regardless of the cycle.</td></tr>
+        <tr><td>Nurses, PSWs, allied health</td><td><span class="tag t-mix">Need acute, budgets capped</span></td><td>A projected 117,600-nurse shortfall by 2030 — yet health and social assistance <em>shed</em> jobs in September. The demographic demand is real; the money to hire against it currently is not.</td></tr>
         <tr><td>Electricians, welders, pipefitters, millwrights</td><td><span class="tag t-exp">Acute</span></td><td>The $135bn pipeline, defence build-out, grid expansion and data centres all need the same people. Ottawa is funding 80,000–100,000 new trades workers by 2030–31 because the shortage binds.</td></tr>
         <tr><td>Power engineering, grid and utility</td><td><span class="tag t-exp">Underrated</span></td><td>Every data centre, SMR, LNG train and electrified mine needs interconnection. The quiet bottleneck across the entire growth story.</td></tr>
         <tr><td>Defence engineering, shipbuilding, MRO</td><td><span class="tag t-exp">Policy-locked</span></td><td>3.5% of GDP by 2035 is a decade-long hiring mandate with cross-party support. Unusual visibility.</td></tr>
@@ -706,13 +712,13 @@
       </tbody>
     </table>
   </div>
-  <p class="src">Sources: Statistics Canada Labour Force Survey, August 2026 (released 4 September); job vacancies, Q1 2026; TD Economics on the August employment and July trade releases; Canadian Nurses Association.</p>
+  <p class="src">Sources: Statistics Canada Labour Force Survey, September 2026 (released 9 October); job vacancies, Q1 2026; TD Economics and KPMG Canada commentary on the September employment and August trade releases; Reuters on rate-hike pricing; Canadian Nurses Association.</p>
 </section>
 
 <!-- ============ PEOPLE + HOUSING ============ -->
 <section id="people">
   <h2 class="sec">People and housing</h2>
-  <p class="deck">Canada is running the largest deliberate reduction in population growth in its modern history. This is the most under-discussed variable in every ten-year forecast, and it cuts both ways.</p>
+  <p class="deck">Canada is running the largest deliberate reduction in population growth in its modern history. Growth has not stopped — the September revision confirmed that — but it has slowed to the weakest pace since the pandemic, and the composition has changed completely.</p>
 
   <figure>
     <svg viewBox="0 0 720 280" role="img" aria-label="Bar chart comparing new temporary resident arrival targets and permanent resident admissions from 2025 to 2028. Temporary resident arrivals fall from 673,650 in 2025 to 385,000 in 2026 and 370,000 in 2027 and 2028. Permanent residents hold near 380,000 to 393,500.">
@@ -725,15 +731,15 @@
   <ul class="clean">
     <li>Permanent resident admissions hold at <strong>380,000 a year through 2028</strong>, with about 64% in economic categories. That is down from a 2024 target of 465,000.</li>
     <li>New temporary resident arrivals fall to <strong>385,000 in 2026</strong> from 673,650 in 2025, then 370,000 in 2027 and 2028. New study permits are cut by roughly half.</li>
-    <li>The non-permanent resident share of the population has already fallen from a 7.6% peak to <strong>6.5%</strong>, with a target of under 5% by end-2027. The PBO judged that target achievable in February 2026.</li>
-    <li>Population fell by <strong>55,025 in Q1 2026</strong>, a third consecutive quarterly decline. Statistics Canada has flagged these as preliminary and will revise in September.</li>
+    <li>Non-permanent residents fell a further 18,875 in Q2 to 2,779,774. The share has dropped from a 7.6% peak toward a target of under 5% by end-2027, which the PBO judged achievable.</li>
+    <li>The September revision reversed the decline narrative: population <strong>grew 80,343 (+0.2%)</strong> in Q2 to 41,798,407 as of 1 July — the weakest second quarter since 2020, but growth. Annual growth was +189,425 (+0.5%).</li>
     <li>A one-time measure grants permanent residence to up to 33,000 established work permit holders across 2026 and 2027.</li>
     <li>The <strong>2027–2029 Immigration Levels Plan is due in fall 2026</strong> — the next real signal on whether this trajectory continues.</li>
   </ul>
 
   <div class="panel spine-a">
     <h4>Why this matters more than it appears</h4>
-    <p style="margin:0 0 10px">A shrinking population flatters GDP per capita arithmetically — which is exactly what happened in Q2, when per-capita output rose 3.8% annualized partly because the denominator fell. Nobody's living standard improved by 3.8% in three months. Be very careful reading per-capita improvements over the next two years.</p>
+    <p style="margin:0 0 10px">Slower population growth flatters GDP per capita arithmetically. Q2 per-capita output rose 1.0% on the quarter, and the national accounts computed that against a population then believed to be falling — a path the September revision has since turned into modest growth. Nobody's living standard jumped in three months. Be careful with per-capita improvements over the next two years, and expect them to be revised.</p>
     <p style="margin:0">It also removes the crutch Canada has leaned on for a decade. Headline GDP growth was propped up by adding people. With that gone, growth has to come from output per worker — which is the thing Canada has been worst at. The policy is defensible and probably correct on housing and services grounds. It also removes every remaining excuse on productivity.</p>
   </div>
 
@@ -848,7 +854,8 @@
   <div class="panel spine-r">
     <h4>Why this is a political problem, not just an economic one</h4>
     <p style="margin:0 0 10px">Alberta and Saskatchewan are being enriched by an oil shock while Ontario and Quebec pay for a trade war neither started — and the federal response transfers money toward the losers using revenue generated by the winners. That arrangement has strained Canadian federalism before.</p>
-    <p style="margin:0">It now has a date attached. On <strong>19 October</strong> Albertans vote on ten referendum questions, including whether the province should begin the legal process toward a binding separation vote. Polling has been consistent and one-sided — the August tracker put roughly two-thirds for remaining and under a third for starting the process — so the likely outcome is No. What matters economically is the margin, not the result: a strong Yes share, arriving amid a trade war and an oil boom, raises the political risk premium on every long-dated investment in the province, and the country's project pipeline is disproportionately Albertan.</p>
+    <p style="margin:0 0 10px">It has a date attached: <strong>19 October</strong>, eight days away. Albertans vote on ten questions, one of which asks whether the province should begin the legal process toward a binding separation referendum. The polling is one-sided and has been moving the wrong way for separatists — Leger's 2–4 October survey put support for remaining in Canada at 70%, up from 65% in August, and a CBC poll found 72% remain against 23% for starting the process. The provincial government is spending $4 million on advertising urging a stay vote.</p>
+    <p style="margin:0">Two things still make it worth watching. First, the margin, not the result, is what reprices Alberta assets: a 30%+ Yes share arriving during a trade war and an oil boom is a different signal from 20%. Second, there is a genuine expectations gap — Abacus found Option 2 supporters expect to win 57% of the vote. Movements that expect victory and receive a quarter of the vote do not usually accept the number quietly, and the UCP's own base is split roughly down the middle on the question.</p>
   </div>
   <p class="src">Sources: Statistics Canada Labour Force Survey, August 2026; CMHC Summer 2026 Housing Market Outlook; Prime Minister's Office and Stikeman Elliott on the Canada–BC Cooperative Prosperity Agreement; Major Projects Office announcements.</p>
 </section>
@@ -921,8 +928,8 @@
   <details>
     <summary>6. Whether the federation holds together economically</summary>
     <div class="body">
-      <p>An asymmetric shock — resource provinces enriched, manufacturing provinces damaged, Ottawa redistributing between them — is the classic setup for a national-unity problem, and Alberta has put the question on a ballot for 19 October. Polling points firmly to No. But a large minority Yes would still reprice long-dated Alberta assets, and the country's project pipeline is disproportionately Albertan.</p>
-      <p><strong>Watch:</strong> the 19 October margin, the West Coast pipeline file, and whether equalisation reopens.</p>
+      <p>An asymmetric shock — resource provinces enriched, manufacturing provinces damaged, Ottawa redistributing between them — is the classic setup for a national-unity problem, and Alberta votes on 19 October. Support for remaining has firmed to around 70%, so the result is close to settled. The residual risk is the gap between that outcome and what the losing side expects, and the fact that the country's project pipeline is disproportionately Albertan.</p>
+      <p><strong>Watch:</strong> the 19 October margin, what Smith does with it, the West Coast pipeline file, and whether equalisation reopens.</p>
     </div>
   </details>
   <details>
@@ -996,7 +1003,7 @@
 </section>
 
 <footer>
-  <p>Built 31 August 2026 and updated 14 September 2026, reflecting figures available on that date. Sources are Statistics Canada, the Bank of Canada, CMHC, IRCC, Finance Canada, the Parliamentary Budget Officer, Global Affairs Canada, the OECD, and published bank and consultancy research, each cited beneath the relevant section. Scenario projections in the ten-year outlook are analytical synthesis and are labelled as such.</p>
+  <p>Built 31 August 2026 and updated 11 October 2026, reflecting figures available on that date. Sources are Statistics Canada, the Bank of Canada, CMHC, IRCC, Finance Canada, the Parliamentary Budget Officer, Global Affairs Canada, the OECD, and published bank and consultancy research, each cited beneath the relevant section. Scenario projections in the ten-year outlook are analytical synthesis and are labelled as such.</p>
   <p>Nothing here is financial, investment, legal or tax advice.</p>
 </footer>
 
@@ -1041,15 +1048,14 @@
     var g = document.getElementById("jobsBars");
     if(!g) return;
     var data = [
-      {n:"Manufacturing",             v:22.0},
-      {n:"Utilities",                 v:-5.6},
-      {n:"Natural resources",         v:-7.7},
-      {n:"Public administration",     v:-8.8},
-      {n:"Business support services", v:-20.0}
+      {n:"April–June (combined)", v:105.9},
+      {n:"July",                  v:75.1},
+      {n:"August",                v:-41.7},
+      {n:"September",             v:-68.3}
     ];
-    var gutter = 196,      /* right edge of the industry-name column */
-        zeroX  = 430,      /* the zero line */
-        scale  = 11,       /* px per thousand jobs */
+    var gutter = 196,      /* right edge of the label column */
+        zeroX  = 392,      /* the zero line */
+        scale  = 2.7,      /* px per thousand jobs */
         top    = 26,
         rowH   = 44,
         barH   = 26,
@@ -1057,7 +1063,7 @@
         axisY  = plotBottom + 16;
 
     /* gridlines behind the bars */
-    [-20,-15,-10,-5,0,5,10,15,20].forEach(function(t){
+    [-75,-50,-25,0,25,50,75,100].forEach(function(t){
       var x = zeroX + t*scale;
       g.appendChild(el("line",{
         x1:x, y1:top-10, x2:x, y2:plotBottom,
@@ -1068,7 +1074,7 @@
         fill: t===0 ? "#4E5C67" : "#85919B"
       }, (t>0?"+":"")+t));
     });
-    g.appendChild(el("line",{x1:zeroX-20*scale, y1:plotBottom, x2:zeroX+22*scale, y2:plotBottom, stroke:"#D7DEE3","stroke-width":"1"}));
+    g.appendChild(el("line",{x1:zeroX-75*scale, y1:plotBottom, x2:zeroX+108*scale, y2:plotBottom, stroke:"#D7DEE3","stroke-width":"1"}));
     g.appendChild(el("text",{x:zeroX, y:axisY+26, "text-anchor":"middle","font-size":"11.5", fill:"#85919B"}, "change in employment, thousands"));
 
     data.forEach(function(d,i){
@@ -1092,7 +1098,7 @@
         y: y+barH/2+5,
         "text-anchor": pos ? "end" : "start",
         "font-size":"12.5", "font-weight":"650", fill:"#FFFFFF"
-      }, (pos?"+":"−")+Math.abs(d.v).toFixed(1)));
+      }, (pos?"+":"−")+Math.abs(d.v).toFixed(1)+"k"));
     });
   })();
 
@@ -1192,11 +1198,11 @@
       {x:236, d:"22 Aug",      t1:"Talks collapse. 50% under", t2:"Section 338 on US$20bn", c:"#B0372C", up:false},
       {x:368, d:"8 Sep",       t1:"Canada retaliates on C$27.6bn.", t2:"US signs 5 more proclamations", c:"#B0372C", up:true},
       {x:480, d:"29 Sep",      t1:"US import bans:", t2:"alcohol, dairy, motorcycles", c:"#B0372C", up:false},
-      {x:588, d:"1 Jan 2027",  t1:"Threatened: auto tariffs", t2:"double to 50%", c:"#B0372C", up:true},
-      {x:684, d:"1 Jul 2027",  t1:"First annual", t2:"CUSMA review", c:"#1F5A8C", up:false}
+      {x:576, d:"3 Nov",       t1:"US midterm elections", t2:"reset the political clock", c:"#1F5A8C", up:true},
+      {x:672, d:"1 Jan 2027",  t1:"Threatened: auto", t2:"tariffs double to 50%", c:"#B0372C", up:false}
     ];
     /* today marker */
-    var tx=406;
+    var tx=516;
     g.appendChild(el("line",{x1:tx,y1:y-40,x2:tx,y2:y+40,stroke:"#85919B","stroke-width":"1","stroke-dasharray":"3 3"}));
     g.appendChild(el("text",{x:tx-6,y:y-46,"text-anchor":"end","font-size":"11",fill:"#85919B"},"today"));
     ev.forEach(function(e){
@@ -1214,9 +1220,9 @@
   /* ---------- chart: wages vs inflation ---------- */
   (function(){
     var g=document.getElementById("wageChart"); if(!g) return;
-    var months=["June","July","August"], wage=[3.3,2.8,2.0], cpi=[2.8,3.0,3.0];
+    var months=["June","July","August","September"], wage=[3.3,2.8,2.0,2.3], cpi=[2.8,3.0,3.0,null];
     var x0=118, x1=612, yTop=44, yBot=226, vMax=3.6, vMin=1.6;
-    function X(i){ return x0 + i*((x1-x0)/2); }
+    function X(i){ return x0 + i*((x1-x0)/3); }
     function Y(v){ return yBot - ((v-vMin)/(vMax-vMin))*(yBot-yTop); }
     [2.0,2.5,3.0,3.5].forEach(function(t){
       g.appendChild(el("line",{x1:x0-16,y1:Y(t),x2:x1+46,y2:Y(t),stroke:"#ECF0F3","stroke-width":"1"}));
@@ -1226,14 +1232,15 @@
       g.appendChild(el("text",{x:X(i),y:yBot+24,"text-anchor":"middle","font-size":"12.5",fill:"#4E5C67"}, m));
     });
     /* crossover marker */
-    var cx = X(0) + 0.714*((x1-x0)/2);
+    var cx = X(0) + 0.714*((x1-x0)/3);
     g.appendChild(el("line",{x1:cx,y1:yTop-14,x2:cx,y2:yBot,stroke:"#B0372C","stroke-width":"1","stroke-dasharray":"4 3"}));
     g.appendChild(el("text",{x:cx+8,y:yTop-4,"font-size":"11.5","font-weight":"650",fill:"#B0372C"},"wages drop below inflation"));
     /* cpi line: two known points, then dashed to unknown */
     g.appendChild(el("path",{d:"M"+X(0)+" "+Y(cpi[0])+" L"+X(1)+" "+Y(cpi[1]),fill:"none",stroke:"#1F5A8C","stroke-width":"2.5"}));
     g.appendChild(el("path",{d:"M"+X(1)+" "+Y(cpi[1])+" L"+X(2)+" "+Y(cpi[2]),fill:"none",stroke:"#1F5A8C","stroke-width":"2.5"}));
     [0,1,2].forEach(function(i){ g.appendChild(el("circle",{cx:X(i),cy:Y(cpi[i]),r:"5",fill:"#1F5A8C"})); });
-    g.appendChild(el("text",{x:X(2)+12,y:Y(cpi[2])+4,"font-size":"12","font-weight":"650",fill:"#1F5A8C"},"3.0%"));
+    g.appendChild(el("path",{d:"M"+X(2)+" "+Y(cpi[2])+" L"+X(3)+" "+Y(cpi[2]),fill:"none",stroke:"#1F5A8C","stroke-width":"2","stroke-dasharray":"5 4",opacity:"0.4"}));
+    g.appendChild(el("text",{x:X(3)+10,y:Y(cpi[2])+4,"font-size":"11.5",fill:"#85919B"},"due 19 Oct"));
     /* wage line */
     g.appendChild(el("path",{d:wage.map(function(v,i){return (i?"L":"M")+X(i)+" "+Y(v);}).join(" "),fill:"none",stroke:"#B0372C","stroke-width":"2.5"}));
     wage.forEach(function(v,i){
@@ -1242,7 +1249,7 @@
     });
     g.appendChild(el("text",{x:X(0)-4,y:Y(cpi[0])-14,"font-size":"12.5","font-weight":"650",fill:"#1F5A8C"},"CPI inflation"));
     g.appendChild(el("text",{x:X(0)-4,y:Y(wage[0])-14,"font-size":"12.5","font-weight":"650",fill:"#B0372C"},"Wage growth"));
-    g.appendChild(el("text",{x:x0-24,y:yBot+52,"font-size":"11.5",fill:"#85919B"},"year-over-year change, 2026"));
+    g.appendChild(el("text",{x:x0-24,y:yBot+52,"font-size":"11.5",fill:"#85919B"},"year-over-year change, 2026 · wages are for permanent employees"));
   })();
 
   /* ---------- chart: committed federal capital ---------- */
@@ -1385,19 +1392,20 @@
   /* ---------- calendar with live countdown ---------- */
   (function(){
     var items = [
-      {d:"2026-09-02", t:"Bank of Canada held at 2.25%", n:"A seventh consecutive hold with a hawkish tilt. Macklem named energy, not tariffs, as the bigger inflation risk."},
-      {d:"2026-09-03", t:"July trade and Q2 productivity", n:"Trade surplus collapsed to $769m; non-US exports hit a record. Productivity rebounded 1.0% after two down quarters."},
-      {d:"2026-09-04", t:"Labour Force Survey, August", n:"Employment fell 42,000, ending a four-month streak. Unemployment held at 6.4%; wage growth slowed to 2.0%."},
       {d:"2026-09-08", t:"Counter-tariffs in force; US escalates", n:"Canada's C$27.6bn countermeasures took effect. The same night Washington signed five further proclamations, adding outright import bans."},
       {d:"2026-09-14", t:"Consumer Price Index, August", n:"Inflation held at 3.0%. Gasoline eased to 22.8%; grocery inflation fell below headline for the first time since July 2024."},
-      {d:"2026-09-15", t:"US 50% tariff list reshuffled", n:"Cement, rock salt and hospital pads out; ATVs, cheeses, motorboats, paper, wood, furniture and mattresses in."},
-      {d:"2026-09-17", t:"Population estimates, Q2 2026", n:"Expected mid-September. Revises the preliminary Q1 decline — it could shrink, deepen, or flip into growth."},
-      {d:"2026-09-29", t:"US import bans take effect", n:"Most Canadian alcohol, certain dairy and whey, molasses, motorcycles and mopeds barred from entry. CUSMA origin gives no exemption."},
-      {d:"2026-09-30", t:"Monthly GDP, July", n:"Expected end of month. The July flash was flat, so this is the first hard read on Q3 momentum."},
-      {d:"2026-10-09", t:"Labour Force Survey, September", n:"Expected. Shows whether August was a pause or a turn, and whether the manufacturing gain was front-running."},
-      {d:"2026-10-19", t:"Alberta referendum", n:"Ten questions, including whether to begin the legal process toward a binding separation vote. Polling points to No; the margin is what matters."},
-      {d:"2026-10-28", t:"Bank of Canada decision and MPR", n:"Confirmed. The first full forecast incorporating the tariffs, the bans and US$100 oil — the most important scheduled event left this year."},
-      {d:"2026-11-15", t:"2027–2029 Immigration Levels Plan", n:"Due in the fall. The signal on whether population contraction is a phase or a direction."},
+      {d:"2026-09-23", t:"Population estimates revised", n:"The annual revision rewrote the story: Q2 showed growth of 80,343, not decline. Weakest second quarter since 2020, but growth."},
+      {d:"2026-09-29", t:"US import bans take effect", n:"Most Canadian alcohol, certain dairy and whey, molasses and large motorcycles barred from entry — about US$967m of goods. CUSMA origin gives no exemption."},
+      {d:"2026-09-29", t:"Monthly GDP, July", n:"Flat after three months of expansion, with manufacturing and retail contracting. August advance estimate +0.2%."},
+      {d:"2026-10-06", t:"Merchandise trade, August", n:"Surplus widened to $4.2bn, the largest since 2022. Exports to the US jumped 8.1% on front-running; exports everywhere else fell 8.5%."},
+      {d:"2026-10-09", t:"Labour Force Survey, September", n:"Employment fell 68,300 against a forecast +9,200. Unemployment 6.5%. The dollar hit an 18-month low."},
+      {d:"2026-10-19", t:"CPI September, and BoC expectations surveys", n:"Confirmed. The last inflation read before the decision, alongside the Bank's business and consumer outlook surveys."},
+      {d:"2026-10-19", t:"Alberta referendum", n:"Ten questions, including whether to begin the legal process toward a binding separation vote. Polling puts remain near 70%; the margin is what matters."},
+      {d:"2026-10-28", t:"Bank of Canada decision and MPR", n:"Confirmed. Hike odds fell to about 25% after the jobs report. The first full forecast incorporating the tariffs, the bans and $100 oil."},
+      {d:"2026-10-30", t:"Monthly GDP, August", n:"Confirms or revises the +0.2% advance estimate, with an advance read on September."},
+      {d:"2026-11-03", t:"US midterm elections", n:"Resets the political clock on trade. Trump has said he will not strike Iran again before this date, which also makes it an oil-market event."},
+      {d:"2026-11-06", t:"Labour Force Survey, October", n:"Confirmed. Whether two months of losses become three, and the first month largely free of front-running distortion."},
+      {d:"2026-11-15", t:"2027–2029 Immigration Levels Plan", n:"Due in the fall. The signal on whether the student and temporary-resident contraction continues."},
       {d:"2026-11-30", t:"Federal budget or fall economic statement", n:"Watch for a credible defence funding path — its absence has been the standing criticism."},
       {d:"2026-12-03", t:"Labour productivity, Q3 2026", n:"Whether the Q2 rebound was a one-quarter artefact of strong output or the start of something."},
       {d:"2027-01-01", t:"Threatened US auto tariff increase", n:"25% to 50% on all cars, trucks and parts. Still described by the White House as on the table."},
